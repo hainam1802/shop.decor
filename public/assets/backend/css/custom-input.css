@@ -1,0 +1,23 @@
+[type="file"] {
+    height: 0;
+    overflow: hidden;
+    width: 0;
+}
+
+[type="file"] + label {
+background: #5867dd;
+border: none;
+border-radius: 3px;
+color: #fff;
+cursor: pointer;
+display: inline-block;
+font-family: 'Rubik', sans-serif;
+font-size: inherit;
+font-weight: 200;
+margin-bottom: 10px;
+outline: none;
+padding: 12px 15px;
+position: relative;
+transition: all 0.3s;
+vertical-align: middle;
+}

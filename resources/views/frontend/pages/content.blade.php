@@ -1,0 +1,1 @@
+<p>Cảm ơn bạn đã gửi email đóng góp cho chúng tôi, chúng tôi sẽ phản hồi trong thời gian sớm nhất, Trân trọng ! </p>
