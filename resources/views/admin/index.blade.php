@@ -1,476 +1,535 @@
-@extends('admin._layouts.index')
-@section('title','Trang chu quan tri')
+{{-- Extends layout --}}
+@extends('admin._layouts.master')
+
+{{-- Content --}}
 @section('content')
-
-<div class="m-grid__item m-grid__item--fluid m-wrapper">
-    <!-- BEGIN: Subheader -->
-    <div class="m-subheader ">
-        <div class="row">
-            <div class="col-xl-8">
-                <div class="m-portlet m-portlet--mobile ">
-                    <div class="m-portlet__head">
-                        <div class="m-portlet__head-caption">
-                            <div class="m-portlet__head-title">
-                                <h3 class="m-portlet__head-text">
-                                    Trang tổng quan
-                                </h3>
-                            </div>
-                        </div>
-                        <div class="m-portlet__head-tools">
-                           
-                        </div>
-                    </div>
-                    <div class="m-portlet__body">
-                        <div class="row">
-                            <div class="col-xl-8">
-                                <div class=" ml-4">
-                                    @if( 5 < $hours && $hours <= 12)
-                                        <h2 style="font-weight:600">Chào buổi sáng, <span style="color:#3699ff">{{ Auth::user()->name }}</span></h2>
-                                    @elseif( 12 < $hours && $hours <= 18)
-                                        <h2 style="font-weight:600">Chào buổi chiều, <span style="color:#3699ff">{{ Auth::user()->name }}</span></h2>
-                                    @elseif( 18 < $hours && $hours <= 23)
-                                        <h2 style="font-weight:600">Chào buổi tối, <span style="color:#3699ff">{{ Auth::user()->name }}</span></h2>
-                                    @else
-                                        <h2 style="font-weight:600">Chúc ngủ ngon, <span style="color:#3699ff">{{ Auth::user()->name }}</span></h2>
-                                    @endif
-                                    <h6 class="mt-3" style="font-weight: 600">Noel sắp đến rồi, Chúng ta hãy cố gắng nhé :3</h6>
-                                </div>
-                            </div>
-                            <div class="col-xl-4">
-                                <img class="img-fluid" src="https://www.upsieutoc.com/images/2020/11/12/xmas_2020.gif" alt="">
-                            </div>
-                        </div>
-                        <div class="">
-							<div class="row">
-								<div class="col-xl-6">
-                                    <div class="m-widget1">
-                                        <div class="m-widget1__item">
-                                            <div class="row m-row--no-padding align-items-center">
-                                                <div class="col">
-                                                    <h3 class="m-widget1__title">Đơn hàng trong tháng</h3>
-                                                    {{-- <span class="m-widget1__desc">Năm 2020</span> --}}
-                                                </div>
-                                                <div class="col m--align-right">
-                                                    <span class="m-widget1__number m--font-brand">{{$count_order_month}}</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="m-widget1__item">
-                                            <div class="row m-row--no-padding align-items-center">
-                                                <div class="col">
-                                                    <h3 class="m-widget1__title">Đã xử lí</h3>
-                                                    {{-- <span class="m-widget1__desc">Weekly Customer Orders</span> --}}
-                                                </div>
-                                                <div class="col m--align-right">
-                                                    <span class="m-widget1__number m--font-danger"> {{$count_status_order_month}} </span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="m-widget1__item">
-                                            <div class="row m-row--no-padding align-items-center">
-                                                <div class="col">
-                                                    <h3 class="m-widget1__title">Chưa xử lí</h3>
-                                                    {{-- <span class="m-widget1__desc">System bugs and issues</span> --}}
-                                                </div>
-                                                <div class="col m--align-right">
-                                                <span class="m-widget1__number m--font-success">{{$none_count_order_month}}</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-xl-6">
-                                    <div class="m-widget14">
-                                        <div class="row  align-items-center">
-                                            <div class="col">
-                                                <div id="m_chart_profit_share" class="m-widget14__chart" style="height: 160px">
-                                                    <div class="m-widget14__stat">{{$count_order_month}}</div>
-                                                </div>
-                                            </div>
-                                            <div class="col">
-                                                <div class="m-widget14__legends">
-                                                    <div class="m-widget14__legend">
-                                                        <span class="m-widget14__legend-bullet m--bg-accent"></span>
-                                                        <span class="m-widget14__legend-text">37% Sport Tickets</span>
-                                                    </div>
-                                                    <div class="m-widget14__legend">
-                                                        <span class="m-widget14__legend-bullet m--bg-warning"></span>
-                                                        <span class="m-widget14__legend-text">47% Business Events</span>
-                                                    </div>
-                                                    <div class="m-widget14__legend">
-                                                        <span class="m-widget14__legend-bullet m--bg-brand"></span>
-                                                        <span class="m-widget14__legend-text">19% Others</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-							</div>
-						</div>
-                    </div>
-                </div>
+@role('admin')
+@php 
+$year = Carbon\Carbon::now()->year;
+$month = Carbon\Carbon::now()->month;
+@endphp
+<div class="row">
+    <div class="col-xl-6">
+        <div class="card card-custom card-stretch gutter-b">
+            <div class="card-header border-0">
+                <h3 class="card-title font-weight-bolder text-dark">Sản phẩm được xem nhiều nhất</h3>
+                <hr>
             </div>
-            <div class="col-xl-4">
-
-                <!--begin:: Widgets/Audit Log-->
-                <div class="m-portlet m-portlet--full-height ">
-                    <div class="m-portlet__head">
-                        <div class="m-portlet__head-caption">
-                            <div class="m-portlet__head-title">
-                                <h3 class="m-portlet__head-text">
-                                    Thông báo sự kiện
-                                </h3>
+            <div class="card-body pt-2" style="max-height:500px;overflow:auto">
+                @foreach ($product as $item)
+                    <div class="d-flex flex-wrap align-items-center mb-10">
+                        <div class="symbol symbol-60 symbol-2by3 flex-shrink-0 mr-4">
+                            <div class="symbol-label" style="background-image: url('{{ isset($item->image)?\App\Library\Files::media($item->image) : null }}');height:110px"></div>
+                        </div>
+                        <div class="d-flex flex-column flex-grow-1 my-lg-0 my-2 mr-2">
+                            <a href="/{{isset($item->url) ? $item->url : $item->slug}}" target="_blank" class="text-dark-75 font-weight-bold text-hover-primary font-size-lg mb-1">{{\Str::limit($item->title,40)}}</a>
+                            {{-- <span class="text-muted font-weight-bold">Visually stunning</span> --}}
+                        </div>
+                        <div class="d-flex align-items-center mt-lg-0 mt-3">
+                            <div class="mr-6">
+                                <i class="la la-eye mr-1 text-warning font-size-lg"></i>
+                                <span class="text-dark-75 font-weight-bolder">{{\App\Library\Helpers::NumberFormatShort($item->totalviews)}}</span>
                             </div>
+                            <a href="/{{isset($item->url) ? $item->url : $item->slug}}" target="_blank" class="btn btn-icon btn-light btn-sm">
+                                <span class="svg-icon svg-icon-success">
+                                    <span class="svg-icon svg-icon-md">
+                                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+                                            <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                                <polygon points="0 0 24 0 24 24 0 24"></polygon>
+                                                <rect fill="#000000" opacity="0.3" transform="translate(12.000000, 12.000000) rotate(-90.000000) translate(-12.000000, -12.000000)" x="11" y="5" width="2" height="14" rx="1"></rect>
+                                                <path d="M9.70710318,15.7071045 C9.31657888,16.0976288 8.68341391,16.0976288 8.29288961,15.7071045 C7.90236532,15.3165802 7.90236532,14.6834152 8.29288961,14.2928909 L14.2928896,8.29289093 C14.6714686,7.914312 15.281055,7.90106637 15.675721,8.26284357 L21.675721,13.7628436 C22.08284,14.136036 22.1103429,14.7686034 21.7371505,15.1757223 C21.3639581,15.5828413 20.7313908,15.6103443 20.3242718,15.2371519 L15.0300721,10.3841355 L9.70710318,15.7071045 Z" fill="#000000" fill-rule="nonzero" transform="translate(14.999999, 11.999997) scale(1, -1) rotate(90.000000) translate(-14.999999, -11.999997)"></path>
+                                            </g>
+                                        </svg>
+                                    </span>
+                                </span>
+                            </a>
                         </div>
                     </div>
-                    <div class="m-portlet__body">
-                        <div class="m-scrollable" data-scrollable="true" data-height="350" data-mobile-height="300">
-                            <!--Begin::Timeline 2 -->
-                            <div class="m-timeline-2">
-                                <div class="m-timeline-2__items  m--padding-top-25 m--padding-bottom-30">
-                                    <div class="m-timeline-2__item">
-                                        <span class="m-timeline-2__item-time">10:00</span>
-                                        <div class="m-timeline-2__item-cricle">
-                                            <i class="fa fa-genderless m--font-danger"></i>
-                                        </div>
-                                        <div class="m-timeline-2__item-text  m--padding-top-5">
-                                            Lorem ipsum dolor sit amit,consectetur eiusmdd tempor<br>
-                                            incididunt ut labore et dolore magna
-                                        </div>
-                                    </div>
-                                    <div class="m-timeline-2__item m--margin-top-30">
-                                        <span class="m-timeline-2__item-time">12:45</span>
-                                        <div class="m-timeline-2__item-cricle">
-                                            <i class="fa fa-genderless m--font-success"></i>
-                                        </div>
-                                        <div class="m-timeline-2__item-text m-timeline-2__item-text--bold">
-                                            AEOL Meeting With
-                                        </div>
-                                    </div>
-                                    <div class="m-timeline-2__item m--margin-top-30">
-                                        <span class="m-timeline-2__item-time">14:00</span>
-                                        <div class="m-timeline-2__item-cricle">
-                                            <i class="fa fa-genderless m--font-brand"></i>
-                                        </div>
-                                        <div class="m-timeline-2__item-text m--padding-top-5">
-                                            Make Deposit <a href="#" class="m-link m-link--brand m--font-bolder">USD 700</a> To ESL.
-                                        </div>
-                                    </div>
-                                    <div class="m-timeline-2__item m--margin-top-30">
-                                        <span class="m-timeline-2__item-time">16:00</span>
-                                        <div class="m-timeline-2__item-cricle">
-                                            <i class="fa fa-genderless m--font-warning"></i>
-                                        </div>
-                                        <div class="m-timeline-2__item-text m--padding-top-5">
-                                            Lorem ipsum dolor sit amit,consectetur eiusmdd tempor<br>
-                                            incididunt ut labore et dolore magna elit enim at minim<br>
-                                            veniam quis nostrud
-                                        </div>
-                                    </div>
-                                    <div class="m-timeline-2__item m--margin-top-30">
-                                        <span class="m-timeline-2__item-time">17:00</span>
-                                        <div class="m-timeline-2__item-cricle">
-                                            <i class="fa fa-genderless m--font-info"></i>
-                                        </div>
-                                        <div class="m-timeline-2__item-text m--padding-top-5">
-                                            Placed a new order in <a href="#" class="m-link m-link--brand m--font-bolder">SIGNATURE MOBILE</a> marketplace.
-                                        </div>
-                                    </div>
-                                    <div class="m-timeline-2__item m--margin-top-30">
-                                        <span class="m-timeline-2__item-time">16:00</span>
-                                        <div class="m-timeline-2__item-cricle">
-                                            <i class="fa fa-genderless m--font-brand"></i>
-                                        </div>
-                                        <div class="m-timeline-2__item-text m--padding-top-5">
-                                            Lorem ipsum dolor sit amit,consectetur eiusmdd tempor<br>
-                                            incididunt ut labore et dolore magna elit enim at minim<br>
-                                            veniam quis nostrud
-                                        </div>
-                                    </div>
-                                    <div class="m-timeline-2__item m--margin-top-30">
-                                        <span class="m-timeline-2__item-time">17:00</span>
-                                        <div class="m-timeline-2__item-cricle">
-                                            <i class="fa fa-genderless m--font-danger"></i>
-                                        </div>
-                                        <div class="m-timeline-2__item-text m--padding-top-5">
-                                            Received a new feedback on <a href="#" class="m-link m-link--brand m--font-bolder">FinancePro App</a> product.
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!--End::Timeline 2 -->
-                        </div>
-                    </div>
-                    
-                </div>
-
-                <!--end:: Widgets/Audit Log-->
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-xl-6">
-
-                <!--begin:: Widgets/Activity-->
-                <div class="m-portlet m-portlet--bordered-semi m-portlet--widget-fit m-portlet--full-height m-portlet--skin-light  m-portlet--rounded-force">
-                    <div class="m-portlet__head">
-                        <div class="m-portlet__head-caption">
-                            <div class="m-portlet__head-title">
-                                <h3 class="m-portlet__head-text m--font-light">
-                                   Doanh thu
-                                </h3>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="m-portlet__body">
-                        <div class="m-widget17">
-                            <div class="m-widget17__visual m-widget17__visual--chart m-portlet-fit--top m-portlet-fit--sides m--bg-danger">
-                                <div class="m-widget17__chart" style="height:320px;">
-                                    <canvas id="m_chart_activities"></canvas>
-                                </div>
-                            </div>
-                            <div class="m-widget17__stats">
-                                <div class="m-widget17__items m-widget17__items-col1">
-                                    <div class="m-widget17__item">
-														<span class="m-widget17__icon">
-															<i class="flaticon-truck m--font-brand"></i>
-														</span>
-                                        <span class="m-widget17__subtitle">
-															Ngày hôm nay
-														</span>
-                                        <span class="m-widget17__desc">
-                                                            {{$count1}} Đơn hàng
-														</span>
-                                    </div>
-                                    <div class="m-widget17__item">
-														<span class="m-widget17__icon">
-															<i class="flaticon-paper-plane m--font-info"></i>
-														</span>
-                                        <span class="m-widget17__subtitle">
-															Doanh thu ngày
-														</span>
-                                        <span class="m-widget17__desc">
-                                                            {{number_format($sum1)}} VNĐ
-														</span>
-                                    </div>
-                                </div>
-                                <div class="m-widget17__items m-widget17__items-col2">
-                                    <div class="m-widget17__item">
-														<span class="m-widget17__icon">
-															<i class="flaticon-pie-chart m--font-success"></i>
-														</span>
-                                        <span class="m-widget17__subtitle">
-															Tháng này
-														</span>
-                                        <span class="m-widget17__desc">
-                                                            {{$count}} Đơn hàng
-														</span>
-                                    </div>
-                                    <div class="m-widget17__item">
-														<span class="m-widget17__icon">
-															<i class="flaticon-time m--font-danger"></i>
-														</span>
-                                        <span class="m-widget17__subtitle">
-															Doanh thu tháng
-														</span>
-                                        <span class="m-widget17__desc">
-                                                            {{number_format($sum)}} VNĐ
-														</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!--end:: Widgets/Activity-->
-            </div>
-            <div class="col-xl-6">
-
-                <!--begin:: Widgets/Support Tickets -->
-                <div class="m-portlet m-portlet--full-height ">
-                    <div class="m-portlet__head">
-                        <div class="m-portlet__head-caption">
-                            <div class="m-portlet__head-title">
-                                <h3 class="m-portlet__head-text">
-                                    Phản hồi từ khách hàng
-                                </h3>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="m-portlet__body">
-                        <div class="m-scrollable m-widget3" data-scrollable="true" data-height="500" data-mobile-height="300">
-                            @foreach ($feekback as $item)
-                            <div class="m-widget3__item">
-                                <div class="m-widget3__header">
-                                    <div class="m-widget3__user-img">
-                                        <img class="m-widget3__img" src="https://upload.wikimedia.org/wikipedia/commons/7/70/User_icon_BLACK-01.png" alt="">
-                                    </div>
-                                    <div class="m-widget3__info">
-                                        <span class="m-widget3__username">
-                                            {{$item->name}}
-                                        </span><br>
-                                        <span class="m-widget3__time">
-                                            {{date('d-m-Y', strtotime($item->updated_at))}}
-                                        </span>
-                                    </div>
-                                </div>
-                                <div class="m-widget3__body">
-                                    <p class="m-widget3__text">
-                                        {{$item->content}}
-                                    </p>
-                                </div>
-                            </div>
-                            @endforeach
-                        </div>
-                    </div>
-                </div>
-
-                <!--end:: Widgets/Support Tickets -->
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-xl-6">
-                <div class="m-portlet m-portlet--full-height ">
-                    <div class="m-portlet__head">
-                        <div class="m-portlet__head-caption">
-                            <div class="m-portlet__head-title">
-                                <h3 class="m-portlet__head-text">
-                                    Hoạt động
-                                </h3>
-                            </div>
-                        </div>
-                        <div class="m-portlet__head-tools">
-                            <ul class="nav nav-pills nav-pills--brand m-nav-pills--align-right m-nav-pills--btn-pill m-nav-pills--btn-sm" role="tablist">
-                                <li class="nav-item m-tabs__item">
-                                    <a class="nav-link m-tabs__link active" data-toggle="tab" href="#m_widget2_tab1_content" role="tab">
-                                        Sản phẩm
-                                    </a>
-                                </li>
-                                <li class="nav-item m-tabs__item">
-                                    <a class="nav-link m-tabs__link" data-toggle="tab" href="#m_widget2_tab2_content" role="tab">
-                                        Bài viết
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="m-portlet__body">
-                        <div class="tab-content">
-                            <div class="tab-pane active" id="m_widget2_tab1_content">
-
-                                <!--Begin::Timeline 3 -->
-                                <div class="m-timeline-3">
-                                    <div class="m-scrollable m-timeline-3__items" data-scrollable="true" data-height="500" data-mobile-height="300">
-                                        @foreach($product as $key => $item)
-                                        <div class="m-timeline-3__item m-timeline-3__item--info">
-                                            <span class="m-timeline-3__item-time">{{date('H:i', strtotime($item->updated_at))}}</span>
-                                            <div class="m-timeline-3__item-desc">
-																<span class="m-timeline-3__item-text">
-																	{{$item->author}} đã thêm một sản phẩm
-																</span><br>
-                                                <span class="m-timeline-3__item-user-name">
-																	<a href="#" class="m-link m-link--metal m-timeline-3__item-link">
-																		{{$item->title}}
-																	</a>
-																</span>
-                                            </div>
-                                        </div>
-                                        @endforeach
-                                    </div>
-                                </div>
-
-                                <!--End::Timeline 3 -->
-                            </div>
-                            <div class="tab-pane" id="m_widget2_tab2_content">
-
-                                <!--Begin::Timeline 3 -->
-                                <div class="m-timeline-3">
-                                    <div class="m-scrollable m-timeline-3__items" data-scrollable="true" data-height="500" data-mobile-height="300">
-                                        @foreach($news as $item)
-                                        <div class="m-timeline-3__item m-timeline-3__item--danger">
-                                            <span class="m-timeline-3__item-time m--font-warning">{{date('H:i', strtotime($item->updated_at))}}</span>
-                                            <div class="m-timeline-3__item-desc">
-																<span class="m-timeline-3__item-text">
-																	{{$item->author}} đã thêm một bài viết
-																</span><br>
-                                                <span class="m-timeline-3__item-user-name">
-																	<a href="#" class="m-link m-link--metal m-timeline-3__item-link">
-																		{{$item->title}}
-																	</a>
-																</span>
-                                            </div>
-                                        </div>
-                                        @endforeach
-                                    </div>
-                                </div>
-
-                                <!--End::Timeline 3 -->
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xl-6">
-                <div class="m-portlet m-portlet--bordered-semi m-portlet--full-height  m-portlet--rounded-force">
-                    <div class="m-portlet__head m-portlet__head--fit">
-                        <div class="m-portlet__head-caption">
-                            <div class="m-portlet__head-action">
-                                <button style="font-family: 'Roboto', sans-serif" type="button" class="btn btn-sm m-btn--pill  btn-brand">Bài đăng mới nhất</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="m-portlet__body">
-                        <div class="m-widget19">
-                            <div class="m-widget19__pic m-portlet-fit--top m-portlet-fit--sides" style="min-height-: 286px">
-                                <img src="{{\App\Library\Files::media( $new->image )}}" alt="">
-                                <h3 class="m-widget19__title m--font-light">
-                                    {{ $new->title }}
-                                </h3>
-                                <div class="m-widget19__shadow"></div>
-                            </div>
-                            <div class="m-widget19__content">
-                                <div class="m-widget19__header">
-                                    <div class="m-widget19__user-img">
-                                        @if(Auth::user()->image)
-                                            <img class="m-widget19__img" src="{{\App\Library\Files::media( Auth::user()->image )}}" class="m--img-rounded m--marginless" alt="" />
-                                        @else
-                                            <img src="/assets/backend/images/image-user.jpg" class="m--img-rounded m--marginless" alt="" />
-                                        @endif
-                                    </div>
-                                    <div class="m-widget19__info">
-														<span class="m-widget19__username">
-															{{$new->author}}
-														</span><br>
-                                        <span class="m-widget19__time">
-                                                    {{date('H:i', strtotime($new->updated_at))}}
-														</span>
-                                    </div>
-                                    <div class="m-widget19__stats">
-														<span class="m-widget19__number m--font-brand">
-															{{date('d', strtotime($new->updated_at))}}
-														</span>
-                                        <span style="margin-left: -20px" class="m-widget19__comment">
-                                                            Tháng <p style="margin-left: 50px">{{date('m', strtotime($new->updated_at))}}</p>
-														</span>
-                                    </div>
-                                </div>
-                                <div class="m-widget19__body">
-                                   {!! $new->description !!}
-                                </div>
-                            </div>
-                            <div class="m-widget19__action">
-                                <a target="_blank" class="btn m-btn--pill btn-secondary m-btn m-btn--hover-brand m-btn--custom" href="{{url('blog/bai-viet/'.$new->slug)}}">Xem bài viết</a>
-                                {{-- <button type="button" class="btn m-btn--pill btn-secondary m-btn m-btn--hover-brand m-btn--custom">Xem bài viết</button> --}}
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
     </div>
-    <!-- END: Subheader -->
+    <div class="col-xl-6">
+        <div class="card card-custom card-stretch gutter-b">
+            <div class="card-header border-0">
+                <h3 class="card-title font-weight-bolder text-dark">Bài viết được xem nhiều nhất</h3>
+                <hr>
+            </div>
+            <div class="card-body pt-2" style="max-height:500px;overflow:auto">
+                @foreach ($article as $item)
+                    <div class="d-flex flex-wrap align-items-center mb-10">
+                        <div class="symbol symbol-60 symbol-2by3 flex-shrink-0 mr-4">
+                            <div class="symbol-label" style="background-image: url('{{ isset($item->image)?\App\Library\Files::media($item->image) : null }}');height:110px"></div>
+                        </div>
+                        <div class="d-flex flex-column flex-grow-1 my-lg-0 my-2 mr-2">
+                            <a href="/blog/{{isset($item->url) ? $item->url : $item->slug}}" target="_blank" class="text-dark-75 font-weight-bold text-hover-primary font-size-lg mb-1">{{\Str::limit($item->title,40)}}</a>
+                            {{-- <span class="text-muted font-weight-bold">Visually stunning</span> --}}
+                        </div>
+                        <div class="d-flex align-items-center mt-lg-0 mt-3">
+                            <div class="mr-6">
+                                <i class="la la-eye mr-1 text-warning font-size-lg"></i>
+                                <span class="text-dark-75 font-weight-bolder">{{\App\Library\Helpers::NumberFormatShort($item->totalviews)}}</span>
+                            </div>
+                            <a href="/blog/{{isset($item->url) ? $item->url : $item->slug}}" target="_blank" class="btn btn-icon btn-light btn-sm">
+                                <span class="svg-icon svg-icon-success">
+                                    <span class="svg-icon svg-icon-md">
+                                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+                                            <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                                <polygon points="0 0 24 0 24 24 0 24"></polygon>
+                                                <rect fill="#000000" opacity="0.3" transform="translate(12.000000, 12.000000) rotate(-90.000000) translate(-12.000000, -12.000000)" x="11" y="5" width="2" height="14" rx="1"></rect>
+                                                <path d="M9.70710318,15.7071045 C9.31657888,16.0976288 8.68341391,16.0976288 8.29288961,15.7071045 C7.90236532,15.3165802 7.90236532,14.6834152 8.29288961,14.2928909 L14.2928896,8.29289093 C14.6714686,7.914312 15.281055,7.90106637 15.675721,8.26284357 L21.675721,13.7628436 C22.08284,14.136036 22.1103429,14.7686034 21.7371505,15.1757223 C21.3639581,15.5828413 20.7313908,15.6103443 20.3242718,15.2371519 L15.0300721,10.3841355 L9.70710318,15.7071045 Z" fill="#000000" fill-rule="nonzero" transform="translate(14.999999, 11.999997) scale(1, -1) rotate(90.000000) translate(-14.999999, -11.999997)"></path>
+                                            </g>
+                                        </svg>
+                                    </span>
+                                </span>
+                            </a>
+                        </div>
+                    </div>
+                @endforeach
+            </div>
+        </div>
+    </div>
 </div>
+<div class="row">
+    <div class="col-lg-12">
+        <div class="card card-custom gutter-b">
+            <div class="card-header">
+                <div class="card-title">
+                    <h3>Thống kê đơn hàng</h3>
+                </div>
+                <div class="card-toolbar">
+                    <form action="" method="POST" class="d-flex justify-content-center">
+                        {{ csrf_field() }}
+                        <div class="example-tools justify-content-center mr-3">
+                            <select class="form-control form-control-sm" name="year" id="order_year">
+                                <option value="{{$year}}">{{$year}}</option>
+                                <option value="{{$year - 1}}">{{$year - 1}}</option>
+                                <option value="{{$year - 2}}">{{$year - 2}}</option>
+                                <option value="{{$year - 3}}">{{$year - 3}}</option>
+                                <option value="{{$year - 4}}">{{$year - 4}}</option>
+                            </select>
+                        </div>
+                        <div class="example-tools justify-content-center">
+                            <select class="form-control form-control-sm" name="month" id="order_month">
+                                @for ($i = 1; $i <= 12; $i++)
+                                    <option value="{{$i}}" @if ($i == $month)
+                                        selected
+                                    @endif
+                                    > Tháng {{$i}}</option>
+                                @endfor
+                            </select>
+                        </div>
+                        <div class="example-tools">
+                            <button type="submit" class="btn btn-light-primary font-weight-bold ml-2 form-control form-control-sm">Xuất</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="card-body">
+                <div id="order"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-lg-12">
+        <div class="card card-custom gutter-b">
+            <div class="card-header">
+                <div class="card-title">
+                    <h3>Doanh thu</h3>
+                </div>
+                <div class="card-toolbar">
+                    <form action="" method="POST" class="d-flex justify-content-center">
+                        {{ csrf_field() }}
+                        <div class="example-tools justify-content-center mr-3">
+                            <select class="form-control form-control-sm" name="year" id="order_price_year">
+                                <option value="{{$year}}">{{$year}}</option>
+                                <option value="{{$year - 1}}">{{$year - 1}}</option>
+                                <option value="{{$year - 2}}">{{$year - 2}}</option>
+                                <option value="{{$year - 3}}">{{$year - 3}}</option>
+                                <option value="{{$year - 4}}">{{$year - 4}}</option>
+                            </select>
+                        </div>
+                        <div class="example-tools justify-content-center">
+                            <select class="form-control form-control-sm" name="month" id="order_price_month">
+                                @for ($i = 1; $i <= 12; $i++)
+                                    <option value="{{$i}}" @if ($i == $month)
+                                        selected
+                                    @endif
+                                    > Tháng {{$i}}</option>
+                                @endfor
+                            </select>
+                        </div>
+                        <div class="example-tools">
+                            <button type="submit" class="btn btn-light-primary font-weight-bold ml-2 form-control form-control-sm">Xuất</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="card-body">
+                <div id="order_price"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-lg-12">
+        <div class="card card-custom gutter-b">
+            <div class="card-header">
+                <div class="card-title">
+                    <h3>Tăng trưởng thành viên</h3>
+                </div>
+                <div class="card-toolbar">
+                    <form action="" method="POST" class="d-flex justify-content-center">
+                        <div class="example-tools">
+                            <select class="form-control form-control-sm" name="year" id="growth_user_year">
+                                <option value="{{$year}}">{{$year}}</option>
+                                <option value="{{$year - 1}}">{{$year - 1}}</option>
+                                <option value="{{$year - 2}}">{{$year - 2}}</option>
+                                <option value="{{$year - 3}}">{{$year - 3}}</option>
+                                <option value="{{$year - 4}}">{{$year - 4}}</option>
+                            </select>
+                        </div>
+                        {{-- <div class="example-tools">
+                            <button type="submit" class="btn btn-light-primary font-weight-bold ml-2 form-control form-control-sm">Xuất</button>
+                        </div> --}}
+                    </form>
+                </div>
+            </div>
+            <div class="card-body">
+                <div id="growth_user"></div>
+            </div>
+        </div>
+    </div>
+</div>
+@endsection
 
-@stop
+@section('styles')
+
+@endsection
+{{-- Scripts Section --}}
+@section('scripts')
+    <script>
+        const primary = '#6993FF';
+        const success = '#1BC5BD';
+        const info = '#8950FC';
+        const warning = '#FFA800';
+        const danger = '#F64E60';
+        const drak = '#181c32';
+        var KTAppSettings = { "breakpoints": { "sm": 576, "md": 768, "lg": 992, "xl": 1200, "xxl": 1400 }, "colors": { "theme": { "base": { "white": "#ffffff", "primary": "#3699FF", "secondary": "#E5EAEE", "success": "#1BC5BD", "info": "#8950FC", "warning": "#FFA800", "danger": "#F64E60", "light": "#E4E6EF", "dark": "#181C32" }, "light": { "white": "#ffffff", "primary": "#E1F0FF", "secondary": "#EBEDF3", "success": "#C9F7F5", "info": "#EEE5FF", "warning": "#FFF4DE", "danger": "#FFE2E5", "light": "#F3F6F9", "dark": "#D6D6E0" }, "inverse": { "white": "#ffffff", "primary": "#ffffff", "secondary": "#3F4254", "success": "#ffffff", "info": "#ffffff", "warning": "#ffffff", "danger": "#ffffff", "light": "#464E5F", "dark": "#ffffff" } }, "gray": { "gray-100": "#F3F6F9", "gray-200": "#EBEDF3", "gray-300": "#E4E6EF", "gray-400": "#D1D3E0", "gray-500": "#B5B5C3", "gray-600": "#7E8299", "gray-700": "#5E6278", "gray-800": "#3F4254", "gray-900": "#181C32" } }, "font-family": "Poppins" };
+        // setup biểu đồ tăng trường thành viên
+        var ChartsGrowthUser = function () {
+            var _user = function (categories,growth) {
+                const apexChart = "#growth_user";
+                var options = {
+                    series: [{
+                        name: "Thành viên",
+                        data: growth
+                    }],
+                    chart: {
+                        height: 340,
+                        type: 'line',
+                        zoom: {
+                            enabled: false
+                        }
+                    },
+                    dataLabels: { 	
+                        enabled: false
+                    },
+                    stroke: {
+                        curve: 'straight'
+                    },
+                    grid: {
+                        row: {
+                            colors: ['#f3f3f3', 'transparent'],
+                            opacity: 0.5
+                        },
+                    },
+                    xaxis: {
+                        categories:categories,
+                    },
+                    colors: [primary]
+                };
+                var chart = new ApexCharts(document.querySelector(apexChart), options);
+                chart.render();
+            }
+            return {
+                init: function (categories,growth) {
+                    _user(categories,growth);
+                }
+            };
+        }();
+        // gọi data tăng trưởng thành viên
+        function GrowthUser(year){
+            $.ajax({
+                type: "GET",
+                url: "{{route('admin.growth.user')}}",
+                data:{
+                    year:year
+                },
+                beforeSend: function (xhr) {
+                },
+                success: function (data) {
+                    if(data.success == true){
+                        var categories = data.data['growth_month'];
+                        categories = $.map(categories, function(value, index) {
+                            return [value];
+                        });
+                        var growth = data.data['growth_user'];
+                        growth = $.map(growth, function(value, index) {
+                            return [value];
+                        });
+                        ChartsGrowthUser.init(categories,growth);
+                    }
+                    else{
+                        alert('Có lỗi xảy ra vui lòng liên hệ Admin để xử lý');
+                        return false;
+                    }
+                },
+                error: function (data) {
+                    alert('Có lỗi xảy ra vui lòng liên hệ Admin để xử lý');
+                        return false;
+                },
+                complete: function (data) {
+                    
+                }
+            });
+        }
+         // setup biểu đồ thống kê đơn hàng
+         var ChartsOrder = function () {
+            var order = function (growth_0,growth_1,growth_2,growth_3,growth_4,growth_day) {
+            const apexChart = "#order";
+            var options = {
+                series: [
+                    {
+                        name: 'Đã hủy',
+                        data: growth_0
+                    },
+                    {
+                        name: 'Đã xử lý (Đang chờ giao hàng)',
+                        data: growth_1
+                    },
+                    {
+                        name: 'Đang chờ xử lý',
+                        data: growth_2
+                    },
+                    {
+                        name: 'Đang giao hàng',
+                        data: growth_3
+                    },
+                    {
+                        name: 'Đơn hàng đã thành công',
+                        data: growth_4
+                    },
+                ],
+                chart: {
+                    height: 350,
+                    type: 'area'
+                },
+                dataLabels: {
+                    enabled: false
+                },
+                stroke: {
+                    curve: 'smooth'
+                },
+                xaxis: {
+                    categories: growth_day
+                },
+                colors: [danger,drak,primary,warning,success]
+            };
+            var chart = new ApexCharts(document.querySelector(apexChart), options);
+            chart.render();
+        }
+        return {
+                init: function (growth_0,growth_1,growth_2,growth_3,growth_4,growth_day) {
+                    order(growth_0,growth_1,growth_2,growth_3,growth_4,growth_day);
+                }
+            };
+        }();
+        function Order(year,month){
+            $.ajax({
+                type: "GET",
+                url: "{{route('admin.growth.order')}}",
+                data:{
+                    year:year,
+                    month:month
+                },
+                beforeSend: function (xhr) {
+                },
+                success: function (data) {
+                    if(data.success == true){
+                        var growth_0 = data.data.growth_0;
+                        growth_0 = $.map(growth_0, function(value, index) {
+                            return [value];
+                        });
+                        var growth_1 = data.data.growth_1;
+                        growth_1 = $.map(growth_1, function(value, index) {
+                            return [value];
+                        });
+                        var growth_2 = data.data.growth_2;
+                        growth_2 = $.map(growth_2, function(value, index) {
+                            return [value];
+                        });
+                        var growth_3 = data.data.growth_3;
+                        growth_3 = $.map(growth_3, function(value, index) {
+                            return [value];
+                        });
+                        var growth_4 = data.data.growth_4;
+                        growth_4 = $.map(growth_4, function(value, index) {
+                            return [value];
+                        });
+                        var growth_day = data.data.growth_day;
+                        growth_day = $.map(growth_day, function(value, index) {
+                            return [value];
+                        });
+                        ChartsOrder.init(growth_0,growth_1,growth_2,growth_3,growth_4,growth_day);
+                    }
+                    else{
+                        alert('Có lỗi xảy ra vui lòng liên hệ Admin để xử lý');
+                        return false;
+                    }
+                },
+                error: function (data) {
+                    alert('Có lỗi xảy ra vui lòng liên hệ Admin để xử lý');
+                        return false;
+                },
+                complete: function (data) {
+                    
+                }
+            });
+        }
+         // setup biểu đồ doanh thu
+         var ChartsOrderPrice = function () {
+            var order_price = function (growth,growth_day) {
+            const apexChart = "#order_price";
+            var options = {
+                series: [
+                    {
+                        name: 'Doanh thu',
+                        data: growth
+                    },
+                ],
+                chart: {
+                    height: 350,
+                    type: 'area'
+                },
+                dataLabels: {
+                    enabled: false
+                },
+                stroke: {
+                    curve: 'smooth'
+                },
+                xaxis: {
+                    categories: growth_day
+                },
+                colors: [success]
+            };
+            var chart = new ApexCharts(document.querySelector(apexChart), options);
+            chart.render();
+        }
+        return {
+                init: function (growth_0,growth_1,growth_2,growth_3,growth_4,growth_day) {
+                    order_price(growth_0,growth_1,growth_2,growth_3,growth_4,growth_day);
+                }
+            };
+        }();
+        function Order_Price(year,month){
+            $.ajax({
+                type: "GET",
+                url: "{{route('admin.growth.order-price')}}",
+                data:{
+                    year:year,
+                    month:month
+                },
+                beforeSend: function (xhr) {
+                },
+                success: function (data) {
+                    if(data.success == true){
+                        var growth = data.data.growth;
+                        growth = $.map(growth, function(value, index) {
+                            return [value];
+                        });
+                        var growth_day = data.data.growth_day;
+                        growth_day = $.map(growth_day, function(value, index) {
+                            return [value];
+                        });
+                        ChartsOrderPrice.init(growth,growth_day);
+                    }
+                    else{
+                        alert('Có lỗi xảy ra vui lòng liên hệ Admin để xử lý');
+                        return false;
+                    }
+                },
+                error: function (data) {
+                    alert('Có lỗi xảy ra vui lòng liên hệ Admin để xử lý');
+                        return false;
+                },
+                complete: function (data) {
+                    
+                }
+            });
+        }
+        jQuery(document).ready(function () {
+            GrowthUser();
+            $('body').on('change','#growth_user_year',function(){
+                year = $(this).val();
+                $("#growth_user").fadeOut(700,function(){
+                    $( "#growth_user" ).load(window.location.href + " #growth_user" );
+                    GrowthUser(Number(year))
+                    setTimeout(function(){
+                        $("#growth_user").fadeIn(700);
+                     }, 2000);
+                });
+            })
+            Order();
+            $('body').on('change','#order_year',function(){
+                year = $(this).val();
+                month = $('#order__month').val();
+                $("#order").fadeOut(700,function(){
+                    $( "#order" ).load(window.location.href + " #order" );
+                    Order(Number(year),Number(month))
+                    setTimeout(function(){
+                        $("#order").fadeIn(700);
+                     }, 4000);
+                });
+            })
+            $('body').on('change','#order_month',function(){
+                month = $(this).val();
+                year = $('#order_year').val();
+                $("#v").fadeOut(700,function(){
+                    $( "#v" ).load(window.location.href + " #order" );
+                    Order(Number(year),Number(month))
+                    setTimeout(function(){
+                        $("#order").fadeIn(700);
+                    }, 4000);
+                });
+            })
+            Order_Price();
+            $('body').on('change','#order_price_year',function(){
+                year = $(this).val();
+                month = $('#order_price__month').val();
+                $("#order_price").fadeOut(700,function(){
+                    $( "#order_price" ).load(window.location.href + " #order_price" );
+                    Order_Price(Number(year),Number(month))
+                    setTimeout(function(){
+                        $("#order_price").fadeIn(700);
+                     }, 4000);
+                });
+            })
+            $('body').on('change','#order_price_month',function(){
+                month = $(this).val();
+                year = $('#order_price_year').val();
+                $("#order_price").fadeOut(700,function(){
+                    $( "#order_price" ).load(window.location.href + " #order_price" );
+                    Order_Price(Number(year),Number(month))
+                    setTimeout(function(){
+                        $("#order_price").fadeIn(700);
+                    }, 4000);
+                });
+            })
+        });
+    </script>
+
+
+@endsection
+@endrole

@@ -1,12 +1,5 @@
-@extends('errors.layouts.index')
-@section('title','429')
-@section('content')
-<div class="m-error_container">
-	<div class="m-error_subtitle m--font-light">
-		<h1>Oops...</h1>
-	</div>
-	<p style="font-family: Arial, Helvetica, sans-serif;" class="m-error_description m--font-light">
-    Too many requests !
-	</p>
-</div>
-@stop
+@extends('errors::minimal')
+
+@section('title', __('Too Many Requests'))
+@section('code', '429')
+@section('message', __('Too Many Requests'))

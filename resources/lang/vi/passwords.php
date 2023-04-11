@@ -1,9 +1,10 @@
 <?php
 
 return [
+
     /*
     |--------------------------------------------------------------------------
-    | Password Reminder Language Lines
+    | Password Reset Language Lines
     |--------------------------------------------------------------------------
     |
     | The following language lines are the default lines which match reasons
@@ -12,9 +13,10 @@ return [
     |
     */
 
-    'password' => 'Mật khẩu phải gồm 6 ký tự và khớp với phần xác nhận.',
-    'reset'    => 'Mật khẩu mới đã được cập nhật!',
-    'sent'     => 'Hướng dẫn cấp lại mật khẩu đã được gửi!',
-    'token'    => 'Mã khôi phục mật khẩu không hợp lệ.',
-    'user'     => 'Không tìm thấy người dùng với địa chỉ email này.',
+    'reset' => 'Mật khẩu đã được cập nhật thành công !',
+    'sent' => 'Thông tin lấy lại tài khoản đã được gửi về email của bạn !',
+    'throttled' => 'Vui lòng thử lại sau ít phút !',
+    'token' => 'Mật khẩu đặt lại không hợp lệ !',
+    'user' => "Tài khoản không được tìm thấy trong hệ thống, vui lòng thử lại !",
+
 ];

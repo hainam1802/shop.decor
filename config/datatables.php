@@ -102,7 +102,7 @@ return [
         /*
          * List of columns are are forbidden from being searched/sorted.
          */
-        'blacklist' => ['password', 'remember_token'],
+        'blacklist' => ['password','password2', 'remember_token'],
 
         /*
          * List of columns that are only allowed fo search/sort.

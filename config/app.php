@@ -93,7 +93,7 @@ return [
     |
     */
 
-    'fallback_locale' => 'en',
+    'fallback_locale' => 'vi',
 
     /*
     |--------------------------------------------------------------------------
@@ -161,12 +161,13 @@ return [
         Illuminate\Translation\TranslationServiceProvider::class,
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
-        Maatwebsite\Excel\ExcelServiceProvider::class,
+        Rap2hpoutre\LaravelLogViewer\LaravelLogViewerServiceProvider::class,
 
         /*
          * Package Service Providers...
          */
-        Yajra\DataTables\DataTablesServiceProvider::class,
+        App\Providers\MetronicServiceProvider::class,
+
         /*
          * Application Service Providers...
          */
@@ -175,11 +176,14 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+        Barryvdh\Debugbar\ServiceProvider::class,
         Spatie\Permission\PermissionServiceProvider::class,
-        App\Providers\ComposerServiceProvider::class,
-        App\Providers\ComposerServiceProviderLanguage::class,
-        App\Providers\ComposerServiceProviderModule::class,
-
+        Yajra\DataTables\DataTablesServiceProvider::class,
+        Maatwebsite\Excel\ExcelServiceProvider::class,
+        Telegram\Bot\Laravel\TelegramServiceProvider::class,
+        Intervention\Image\ImageServiceProvider::class,
+        App\Providers\WidgetServiceProvider::class,
+        // Laravel\Socialite\SocialiteServiceProvider::class,
     ],
 
     /*
@@ -231,8 +235,15 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
+        'Debugbar' => Barryvdh\Debugbar\Facade::class,
+        // Metronic Aliases
+        'Metronic' => App\Classes\Theme\Metronic::class,
+        'Menu' => App\Classes\Theme\Menu::class,
+        'DataTables' => Yajra\DataTables\Facades\DataTables::class,
         'Excel' => Maatwebsite\Excel\Facades\Excel::class,
-        'Carbon' => Carbon\Carbon::class
+        'Telegram' => Telegram\Bot\Laravel\Facades\Telegram::class,
+        'Image' => Intervention\Image\Facades\Image::class,
+        // 'Socialite' => Laravel\Socialite\Facades\Socialite::class,
     ],
 
 ];

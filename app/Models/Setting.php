@@ -2,11 +2,14 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
-use Cache;
 
-class Setting extends Model
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Cache;
+
+
+class Setting extends BaseModel
 {
+
     protected $table = 'settings';
 
     protected $guarded = [];
@@ -20,6 +23,7 @@ class Setting extends Model
 
     public static function add($key, $val, $type = 'string')
     {
+
         if ( self::has($key) ) {
             return self::set($key, $val, $type);
         }
@@ -40,7 +44,6 @@ class Setting extends Model
             $setting = self::getAllSettings()->where('name', $key)->first();
             return self::castValue($setting->val, $setting->type);
         }
-
         return self::getDefaultValue($key, $default);
     }
 
@@ -54,7 +57,10 @@ class Setting extends Model
      */
     public static function set($key, $val, $type = 'string')
     {
+
         if ( $setting = self::getAllSettings()->where('name', $key)->first() ) {
+
+
             return $setting->update([
                 'name' => $key,
                 'val' => $val,
@@ -88,6 +94,7 @@ class Setting extends Model
     public static function has($key)
     {
         return (boolean) self::getAllSettings()->whereStrict('name', $key)->count();
+
     }
 
     /**
@@ -117,6 +124,17 @@ class Setting extends Model
 
         return is_null($type) ? 'string' : $type;
     }
+
+
+    public static function getInputType($field)
+    {
+        $type  = self::getDefinedSettingFields()
+            ->pluck('type', 'name')
+            ->get($field);
+
+        return is_null($type) ? null : $type;
+    }
+
 
     /**
      * Get default value for a setting
@@ -185,6 +203,7 @@ class Setting extends Model
      */
     public static function getAllSettings()
     {
+
         return Cache::rememberForever('settings.all', function() {
             return self::all();
         });
@@ -213,4 +232,6 @@ class Setting extends Model
             self::flushCache();
         });
     }
+
+
 }

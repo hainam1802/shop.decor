@@ -40,7 +40,7 @@ class Files
 
 
     static function upload_image_extension($files = false, $dir = 'images', $filename="", $width = true, $height = true,$keepOrginExtention=false){
-        
+
         $allFilename = "";
         $allowedExtensions = array('jpeg', 'jpg', 'png', 'bmp', 'gif', 'ico');
         if(is_array($files)){
@@ -85,9 +85,11 @@ class Files
         return $allFilename;
     }
 
-    static function upload_image($files = false, $dir = 'images', $filename="", $width = true, $height = true,$keepOrginExtention=false){
+    static function upload_image($files = false, $dir = 'images', $filename="", $width = true, $height = true,$keepOrginExtention=true){
 
-
+        if($files===null){
+            return "";
+        }
 
         $allFilename = "";
         $allowedExtensions = array('jpeg', 'jpg', 'png', 'bmp', 'gif', 'ico');

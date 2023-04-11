@@ -1,125 +1,266 @@
-@extends('admin._layouts.index')
-@section('title','Phân quyền')
+{{-- Extends layout --}}
+@extends('admin._layouts.master')
+
+
+@section('action_area')
+    <div class="d-flex align-items-center text-right">
+        <div class="btn-group">
+            <button type="button"  data-url="{{route("admin.permission.create")}}" class="btn btn-success font-weight-bolder loadModal_toggle">
+                <i class="fas fa-plus-circle icon-md"></i>
+                {{__('Thêm mới')}}
+            </button>
+        </div>
+    </div>
+@endsection
+
+{{-- Content --}}
 @section('content')
 
-    <div class="m-grid__item m-grid__item--fluid m-wrapper">
-        <!-- BEGIN: Subheader -->
-        <div class="m-subheader">
-            <div class="d-flex align-items-center">
-                <div class="mr-auto">
-                    <h3 style="font-family: Arial, Helvetica, sans-serif" class="m-subheader__title m-subheader__title--separator"> {{__('Phân quyền')}} </h3>
-                    <ul class="m-subheader__breadcrumbs m-nav m-nav--inline">
-                        <li class="m-nav__item m-nav__item--home">
-                            <a href="{{route('dashboard.index')}}" class="m-nav__link m-nav__link--icon">
-                                <i class="m-nav__link-icon la la-home"></i>
-                            </a>
-                        </li>
-                        <li class="m-nav__separator mr-3">-  </li>
-                        <li class="m-nav__item">
-                            <a href="" class="m-nav__link">
-                                <span class="m-nav__link-text"> {{__('Phân quyền')}} </span>
-                            </a>
-                        </li>
-                    </ul>
+        <div class="card card-custom" id="kt_page_sticky_card">
+            <div class="card-header">
+                <div class="card-title">
+                    <h3 class="card-label">
+                       {{__($page_breadcrumbs[0]['title'])}} <i class="mr-2"></i>
+                    </h3>
                 </div>
+                <div class="card-toolbar"></div>
             </div>
-        </div>
-        <div class="m-subheader">
-        <div class="m-portlet">
-            <div class="m-portlet__head">
-                <div class="m-portlet__head-caption">
-                    <div class="m-portlet__head-title">
-                        <h3 class="m-portlet__head-text">
-                            {{__('Danh sách quyền')}}
-                        </h3>
-                    </div>
-                </div>
-                <div class="m-portlet__head-tools">
-                    <a href="{{route('permission.create')}}" class="btn btn-success m-btn m-btn--custom m-btn--icon">
-                        <span>
-                            <i class="la la-calendar-check-o"></i>
-                            <span> {{__('Thêm quyền')}} </span>
-                        </span>
-                    </a>
-                </div>
-            </div>
-            <div class="m-portlet__body">
-                <div class="m-form m-form--fit">
-                    <div class="row m--margin-bottom-40 mt-2">
-                        <div class="col-lg-4 m--margin-bottom-10-tablet-and-mobile">
-                                <div class="input-group">
-                                    <div class="input-group-prepend"><span class="input-group-text"><i class="la la-sitemap"></i></span></div>
-                                <input type="text" class="form-control m-input" value="{{request('title')}}" autocomplete="off" id="title" name="title" placeholder="{{__('Nhập tên quyền')}}">
+
+            <div class="card-body">
+
+                <div class="row">
+                    <div class="col-sm-8">
+                        <div class="well">
+                            <div class="lead text-right">
+                                <div class="" style="float: right">
+                                    <a href="#" id="nestable-menu-action" data-action="collapse-all" class="btn btn-info m-btn">
+                                        {{__('Thu gọn')}}
+                                    </a>
+                                    <a href="#" id="nestable-menu-checkall" data-action="0"  class="btn btn-primary m-btn">
+                                        {{__('Chọn tất cả')}}
+                                    </a>
+                                    <a  href="#" class="btn btn-danger m-btn  delete_selected"  >
+                                        {{__('Xóa mục đã chọn')}}
+                                    </a>
                                 </div>
+                                <p class="success-indicator" style="display:none; margin-right: 15px;float: left;color: #34bfa3;font-size: 14px">
+                                    <span class="glyphicon glyphicon-ok"></span>   {{__('Danh mục đã được cập nhật !')}}
+                                </p>
+
+                            </div>
+                            <div class="" style="clear: both"></div>
+                            <div class="dd" id="nestable">
+                                {!! $datatable !!}
+                            </div>
+                            {{ Form::close() }}
+
+                        </div>
+                    </div>
+                    <div class="col-sm-4 d-none d-sm-block">
+                        <div class="well">
+                            <div class="m-demo-icon">
+                                <i class="flaticon-light icon-lg"></i> {{__('Kéo thả để sắp xếp danh mục')}}
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="m-section" >
-                    <table class="table table-striped- table-bordered table-hover table-checkable dataTable no-footer" role="grid" id="table_main">
-                        <thead> 
-                            <tr>
-                                <th>ID</th>
-                                <th> {{__('Tên quyền')}} </th>
-                                <th> {{__('Mô tả')}} </th>
-                                <th> {{__('Hành động')}} </th>
-                            </tr>
-                        </thead>
-                    </table>
-                </div>
             </div>
-            <!--end::Form-->
         </div>
-        </div>
-        <!-- END: Subheader -->
-    </div>
-    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel"> {{__('Xóa chức năng')}} </h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    {{__('Bạn có muốn xóa')}} ?
-                </div>
-                <div class="modal-footer">
-                    <form id="form-delete" role="form" method="POST" enctype="multipart/form-data" action="">
-                        {{csrf_field()}}
-                        <input type="hidden" name="_method" value="DELETE">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal"> {{__('Quay lại')}} </button>
-                        <button type="submit" class="btn btn-primary"> {{__('Xóa')}} </button>
-                    </form>
+
+
+
+        <!-- loadModal create_edit  Modal -->
+        <div class="modal fade" id="loadModal" tabindex="-1" role="dialog" style="display: none;" aria-hidden="true">
+            <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
                 </div>
             </div>
         </div>
-    </div>
+        <!-- delete item Modal -->
+        <div class="modal fade" id="deleteModal">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    {{Form::open(array('route'=>array('admin.permission.destroy',0),'class'=>'form-horizontal','method'=>'DELETE'))}}
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel"> {{__('Xác nhận thao tác')}}</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <i aria-hidden="true" class="ki ki-close"></i>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        {{__('Bạn thực sự muốn xóa?')}}
+                    </div>
+                    <div class="modal-footer">
+                        <input type="hidden" name="id" class="id" value=""/>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">{{__('Hủy')}}</button>
+                        <button type="submit" class="btn btn-danger m-btn m-btn--custom">{{__('Xóa')}}</button>
+                    </div>
+                    {{ Form::close() }}
+                </div>
+            </div>
+        </div>
+
+
+
+@endsection
+
+{{-- Styles Section --}}
+@section('styles')
+
+@endsection
+{{-- Scripts Section --}}
+@section('scripts')
+
     <script>
 
-        $(document).ready(function(){
 
-            $('#exampleModal').on('show.bs.modal', function(e) {
-                var action=$( e.relatedTarget).data('action');
-                $('#form-delete').attr('action',action );
+
+        //create,edit button
+        $('.loadModal_toggle,.edit_toggle').each(function (index, elem) {
+            $(elem).click(function (e) {
+                e.preventDefault();
+                $('#loadModal .modal-content').empty();
+                $('#loadModal .modal-content').load($(this).data("url"),function(){
+                    $('#loadModal').modal({show:true});
+                    $("#kt_select2_2, #kt_select2_2_validate").select2();
+                });
             });
         });
-        var datatable;
-        jQuery(document).ready(function (){
-            datatable = $('#table_main').DataTable({
-                processing: true,
-                serverSide: true,
-                ajax: '{!! route('permission.datatable') !!}',
-                columns: [
-                    { data: 'id', name: 'id' },
-                    { data: 'title', name: 'title' },
-                    { data: 'description', name: 'description' },
-                    { data: 'action', name:'action' }
-                ]
+
+        //delete button
+        $('.delete_toggle').each(function (index, elem) {
+            $(elem).click(function (e) {
+
+                e.preventDefault();
+                $('#deleteModal .id').attr('value', $(elem).attr('rel'));
+                $('#deleteModal').modal('toggle');
             });
-            $('#title').donetyping(function () {
-            datatable.search( this.value ).draw();
-        }, 600);
         });
+        //delete button all
+        $('.delete_selected').click(function (e) {
+            e.preventDefault();
+            var id_delete = '';
+            var total = $("#nestable .nested-list-content input[type=checkbox]:checked").length;
+            if(total>0){
+                $("#nestable input[type=checkbox]").each(function (index, elem) {
+                    if ($(elem).is(':checked')) {
+                        id_delete = id_delete + $(elem).attr('rel');
+                        if (index !== total - 1) {
+                            id_delete = id_delete + ',';
+                        }
+                    }
+                });
+                $('#deleteModal .id').attr('value', id_delete);
+                $('#deleteModal').modal('toggle');
+            }
+            else{
+                alert('{{__('Vui lòng chọn dữ liệu cần xóa')}}');
+            }
+
+        });
+        //end delete button all
+
+        // datatable.on("click", "#btnCheckAll", function () {
+        //     $(".ckb_item input[type='checkbox']").prop('checked', this.checked).change();
+        // })
+        $("#nestable-menu-checkall").click(function(e) {
+            e.preventDefault();
+            action =$(this).attr('data-action');
+            if (action == 1) {
+                $(this).text('Chọn tất cả');
+                $(this).attr('data-action',0);
+                $(".nested-list-content .m-checkbox input[type='checkbox']").prop('checked', false).change();
+            }
+            else{
+                $(this).text('Bỏ chọn tất cả');
+                $(this).attr('data-action',1);
+                $(".nested-list-content  .m-checkbox input[type='checkbox']").prop('checked', true).change();
+            }
+
+        });
+
+
+
+        //nestable
+        $(function () {
+            $('.dd').nestable({
+                dropCallback: function (details) {
+
+                    var order = new Array();
+                    $("li[data-id='" + details.destId + "']").find('ol:first').children().each(function (index, elem) {
+                        order[index] = $(elem).attr('data-id');
+                    });
+
+                    if (order.length === 0) {
+                        var rootOrder = new Array();
+                        $("#nestable > ol > li").each(function (index, elem) {
+                            rootOrder[index] = $(elem).attr('data-id');
+                        });
+                    }
+
+                    $.post('{{route('admin.permission.order')}}',
+                        {
+                            _token:'{{ csrf_token() }}',
+                            source: details.sourceId,
+                            destination: details.destId,
+                            order: JSON.stringify(order),
+                            rootOrder: JSON.stringify(rootOrder)
+                        },
+                        function (data) {
+                            // console.log('data '+data);
+                        })
+                        .done(function () {
+
+                            $(".success-indicator").fadeIn(100).delay(1000).fadeOut();
+                        })
+                        .fail(function () {
+                        })
+                        .always(function () {
+                        });
+                }
+            });
+
+
+        });
+        //nestable action
+        $('#nestable-menu-action').on('click', function(e)
+        {
+            action =$(this).attr('data-action');
+            if (action === 'expand-all') {
+
+
+                $(this).text('Thu gọn');
+                $(this).attr('data-action','collapse-all');
+                //thực hiện thao tác expand-all
+                $('.dd').nestable('expandAll');
+            }
+            else{
+                $(this).text('Mở rộng');
+                $(this).attr('data-action','expand-all');
+                //thực hiện thao tác collapse-all
+                $('.dd').nestable('collapseAll');
+            }
+
+        });
+        //end nestable action
+
+        $("#nestable input[type='checkbox']").change(function () {
+
+            //click children
+            $(this).closest('.dd-item').find("input[type='checkbox']").prop('checked', this.checked);
+            var is_checked = $(this).is(':checked');
+
+
+            $("#nestable input[type='checkbox']").each(function (index, elem) {
+
+                if ($(elem).is(':checked')) {
+
+                    return;
+                }
+            });
+        });
+
     </script>
-@stop
+
+
+@endsection

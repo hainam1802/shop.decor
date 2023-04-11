@@ -1,6 +1,8 @@
 <?php
 namespace App\Library;
-
+use Telegram\Bot\Laravel\Facades\Telegram;
+use DateTime;
+use Carbon\Carbon;
 
 use Html;
 
@@ -12,10 +14,6 @@ use Html;
  */
 class Helpers
 {
-
-
-
-
     public static function Encrypt($string,$secret_key="") {
         $output = "";
 
@@ -180,13 +178,16 @@ class Helpers
 
 
     //build for dropdownlist
-    public static function buildMenuDropdownList($dataCategory, $selected, $idparrent = 0, $stringSpecial = "")
+    public static function buildMenuDropdownList($dataCategory, $selected, $idparent = 0, $stringSpecial = "")
     {
+
         $result = null;
 
 
         foreach ($dataCategory as $item) {
-            if ($item->parrent_id == $idparrent) {
+
+            if ($item->parent_id == $idparent) {
+
                 $checked = "";
                 foreach ((array)$selected as $key => $value) {
                     if ($value == $item->id) {
@@ -196,18 +197,18 @@ class Helpers
                 }
                 $result .= "<option value='" . $item->id . "'" . $checked . ">" . Html::entities($stringSpecial . ' ' . $item->title) . "</option>";
 
-                $result .= self::buildMenuDropdownList($dataCategory, $selected, $item->id, $stringSpecial . "---");
+                $result .= self::buildMenuDropdownList($dataCategory, $selected, $item->id, $stringSpecial . "¦– – ");
             }
         }
         return $result;
     }
 
-    public static function GetChildrenCategory($menu, $parrent_id)
+    public static function GetChildrenCategory($menu, $parent_id)
     {
 
         $result = null;
         foreach ($menu as $item)
-            if ($item->parrent_id == $parrent_id) {
+            if ($item->parent_id == $parent_id) {
                 $result .= ',' . $item->id;
                 $result .= self::GetChildrenCategory($menu, $item->id);
 
@@ -215,9 +216,176 @@ class Helpers
         return $result ? "$result" : null;
     }
 
+    public static function TelegramNotify($content,$channel_id = ""){
+        try{
+            if($channel_id == "" || $channel_id == null){
+                $channel_id = config('telegram.bots.mybot.channel_id');
+            }
+            Telegram::sendMessage([
+                'chat_id' => $channel_id,
+                'parse_mode' => 'HTML',
+                'text' => $content
+            ]);
+        }
+        catch (\Exception $e) {
+            return false;
+        }
+    }
 
+    public static function getSearch($request,$nameSearch,$params){
+        $url = parse_url($request);
+        $query_str = parse_url($request, PHP_URL_QUERY);
+        parse_str($query_str, $query_params);
+        if(isset($query_params[$nameSearch])){
+            $query_params[$nameSearch] = $params;
+        }
+        else{
+            $query_params[$nameSearch] = $params;
+        }
+        $query = http_build_query($query_params);
+        $result = $url['scheme'].'://'.$url['host'].$url['path'].'?'.$query;
+        return $result;
+    }   
+    public static function StringMoney($number) {
+        try{
+           $hyphen      = ' ';
+            $conjunction = '  ';
+            $separator   = ' ';
+            $negative    = 'âm ';
+            $decimal     = ' phẩy ';
+            $dictionary  = array(
+            0                   => 'không',
+            1                   => 'một',
+            2                   => 'hai',
+            3                   => 'ba',
+            4                   => 'bốn',
+            5                   => 'năm',
+            6                   => 'sáu',
+            7                   => 'bảy',
+            8                   => 'tám',
+            9                   => 'chín',
+            10                  => 'mười',
+            11                  => 'mười một',
+            12                  => 'mười hai',
+            13                  => 'mười ba',
+            14                  => 'mười bốn',
+            15                  => 'mười năm',
+            16                  => 'mười sáu',
+            17                  => 'mười bảy',
+            18                  => 'mười tám',
+            19                  => 'mười chín',
+            20                  => 'hai mươi',
+            30                  => 'ba mươi',
+            40                  => 'bốn mươi',
+            50                  => 'năm mươi',
+            60                  => 'sáu mươi',
+            70                  => 'bảy mươi',
+            80                  => 'tám mươi',
+            90                  => 'chín mươi',
+            100                 => 'trăm',
+            1000                => 'nghìn',
+            1000000             => 'triệu',
+            1000000000          => 'tỷ',
+            1000000000000       => 'nghìn tỷ',
+            1000000000000000    => 'nghìn triệu triệu',
+            1000000000000000000 => 'tỷ tỷ'
+            );
+        if (!is_numeric($number)) {
+            return false;
+        }
+        if (($number >= 0 && (int) $number < 0) || (int) $number < 0 - PHP_INT_MAX) {
+            // overflow
+            trigger_error(
+            'convert_number_to_words only accepts numbers between -' . PHP_INT_MAX . ' and ' . PHP_INT_MAX,
+            E_USER_WARNING
+            );
+            return false;
+        }
+        if ($number < 0) {
+            return $negative . self::StringMoney(abs($number));
+        }
+        $string = $fraction = null;
+            if (strpos($number, '.') !== false) {
+            list($number, $fraction) = explode('.', $number);
+        }
+        switch (true) {
+        case $number < 21:
+            $string = $dictionary[$number];
+        break;
+        case $number < 100:
+            $tens   = ((int) ($number / 10)) * 10;
+            $units  = $number % 10;
+            $string = $dictionary[$tens];
+            if ($units) {
+                $string .= $hyphen . $dictionary[$units];
+            }
+        break;
+        case $number < 1000:
+            $hundreds  = $number / 100;
+            $remainder = $number % 100;
+            $string = $dictionary[$hundreds] . ' ' . $dictionary[100];
+            if ($remainder) {
+                $string .= $conjunction . self::StringMoney($remainder);
+            }
+        break;
+        default:
+            $baseUnit = pow(1000, floor(log($number, 1000)));
+            $numBaseUnits = (int) ($number / $baseUnit);
+            $remainder = $number % $baseUnit;
+            $string = self::StringMoney($numBaseUnits) . ' ' . $dictionary[$baseUnit];
+            if ($remainder) {
+                $string .= $remainder < 100 ? $conjunction : $separator;
+                $string .= self::StringMoney($remainder);
+            }
+            break;
+        }
+        if (null !== $fraction && is_numeric($fraction)) {
+            $string .= $decimal;
+            $words = array();
+            foreach (str_split((string) $fraction) as $number) {
+                $words[] = $dictionary[$number];
+            }
+            $string .= implode(' ', $words);
+        }
+        return $string;
+    }
+    catch (\Exception $e) {
+        return 'Lỗi hiển thị';
+    }	
+	}
 
+    public static function NumberFormatShort( $n, $precision = 1){
+        if ($n < 900) {
+            // 0 - 900
+            $n_format = number_format($n, $precision);
+            $suffix = '';
+        } else if ($n < 900000) {
+            // 0.9k-850k
+            $n_format = number_format($n / 1000, $precision);
+            $suffix = 'K';
+        } else if ($n < 900000000) {
+            // 0.9m-850m
+            $n_format = number_format($n / 1000000, $precision);
+            $suffix = 'M';
+        } else if ($n < 900000000000) {
+            // 0.9b-850b
+            $n_format = number_format($n / 1000000000, $precision);
+            $suffix = 'B';
+        } else {
+            // 0.9t+
+            $n_format = number_format($n / 1000000000000, $precision);
+            $suffix = 'T';
+        }
+        if ( $precision > 0 ) {
+            $dotzero = '.' . str_repeat( '0', $precision );
+            $n_format = str_replace( $dotzero, '', $n_format );
+        }
+    
+        return $n_format . $suffix;
+    }
 
-
-
+    public static function FormatDateTimeToF($date){
+        $date = Carbon::createFromFormat('d/m/YY', $date)->format('d-m-Y');
+        return date('F d, Y H:i:s', strtotime($date));
+    }
 }

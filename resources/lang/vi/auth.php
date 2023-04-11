@@ -1,6 +1,7 @@
 <?php
 
 return [
+
     /*
     |--------------------------------------------------------------------------
     | Authentication Language Lines
@@ -12,6 +13,7 @@ return [
     |
     */
 
-    'failed'   => 'Thông tin tài khoản không tìm thấy trong hệ thống.',
-    'throttle' => 'Vượt quá số lần đăng nhập cho phép. Vui lòng thử lại sau :seconds giây.',
+    'failed' => 'Tài khoản hoặc mật khẩu không đúng !',
+    'throttle' => 'Too many login attempts. Please try again in :seconds seconds.',
+
 ];
