@@ -18,15 +18,14 @@ use Illuminate\Support\Facades\Route;
 Route::group(['namespace' => 'Api\Frontend','prefix' => 'client','as'=>'api.'],function(){
     Route::post('/login','Auth\LoginController@login');
     Route::post('/register','Auth\RegisterController@register');
-//    Route::post('/token','UserController@postCheckToken');
-
+    Route::get('/menu-category','MenuCategoryController@index');
+    Route::get('/category','CategoryController@index');
+    Route::get('/category/{id}','ProductController@getCategory');
 });
 
 //api
 Route::group(['namespace' => 'Api\Backend','prefix' => 'admin','as'=>'api.'],function(){
     Route::post('/login','Auth\LoginController@login');
-    Route::post('/register','Auth\RegisterController@register');
-//    Route::post('/token','UserController@postCheckToken');
 
 });
 
