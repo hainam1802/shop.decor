@@ -22709,8 +22709,6 @@ $(document).ready(function() {
             autoplay: !0,
             autoplaySpeed: 4000,
             pauseOnHover: !0,
-            nextArrow: '<a href="javascript:;" class="slick-nav slick-nav-right"><i class="fa fa-angle-right" aria-hidden="true"></i></a>',
-            prevArrow: '<a href="javascript:;" class="slick-nav slick-nav-left"><i class="fa fa-angle-left" aria-hidden="true"></i></a>',
             responsive: [{
                 breakpoint: 767,
                 settings: {
