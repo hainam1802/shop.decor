@@ -321,8 +321,8 @@ class ProductController extends Controller
         //        }
         return response()->json([
             'message' => 'Thành công.',
-            'data_attribute' => $currentCategory,
-            'breadcumb' => $breadcumb,
+            'data_attribute' => $data_attribute,
+            'currentCategory' => $currentCategory,
             'data' => $data,
             'items_prd' => $items_prd,
             'items_blog' => $items_blog,
