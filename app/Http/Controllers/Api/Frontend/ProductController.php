@@ -328,7 +328,6 @@ class ProductController extends Controller
             'items_blog' => $items_blog,
             'comment' => $comment,
         ], 200);
-        return $breadcumb;
     }
     public function getCart(Request $request){
         dd(json_decode(Cookie::get('shopping_cart')));
