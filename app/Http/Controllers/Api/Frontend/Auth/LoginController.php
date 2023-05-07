@@ -29,7 +29,7 @@ class LoginController extends Controller
             return response()->json([
                 'message' => $validator->errors()->first(),
                 'status' => 0
-            ],422);
+            ],200);
         }
 
         $user = User::where('username', $request->username)
@@ -41,7 +41,7 @@ class LoginController extends Controller
             return response()->json([
                 'message' => __('Tài khoản hoặc mật khẩu không đúng.'),
                 'status' => 0
-            ], 401);
+            ], 200);
         }
 
         if($user && \Hash::check($request->password,$user->password)){

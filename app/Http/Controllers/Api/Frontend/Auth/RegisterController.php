@@ -19,7 +19,7 @@ class RegisterController extends Controller
                 'username' => 'required|min:4|max:30|unique:users,username|regex:/^([A-Za-z0-9_.])+$/i',
                 'email' => 'required|unique:users,email|string|email|max:255',
                 'phone' =>'required|unique:users,phone|digits_between:5,11',
-                'password' => 'required|min:6|max:32|string|min:6|confirmed|different:username',
+                'password' => 'required|min:6|max:32|string|min:6|different:username',
 
             ],[
                 'username.min'      => 'Tên tài khoản ít nhất 4 ký tự.',
@@ -33,7 +33,7 @@ class RegisterController extends Controller
                 'password.required' => 'Vui lòng nhập mật khẩu',
                 'password.min'      => 'Mật khẩu phải ít nhất 6 ký tự.',
                 'password.max'      => 'Mật khẩu không vượt quá 32 ký tự.',
-                'password.confirmed' => 'Mật khẩu xác nhận không đúng',
+//                'password.confirmed' => 'Mật khẩu xác nhận không đúng',
                 'password.different' => 'Mật khẩu không được trùng với tài khoản',
                 'phone.required'    => 'Vui lòng nhập số điện thoại',
                 'phone.unique'      => 'Số điện thoại đã được đăng ký',
@@ -44,7 +44,7 @@ class RegisterController extends Controller
                 return response()->json([
                     'message' => $validator->errors()->first(),
                     'status' => 0
-                ],422);
+                ],200);
             }
             $username = $request->username;
             // kiểm tra username

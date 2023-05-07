@@ -195,6 +195,7 @@ class ProductController extends Controller
             })
             ->where('status',1)
             ->first();
+
             //        $category_data = $data->groups->pluck('slug')->toArray();
             //        if(!in_array($category, $category_data))
             //        {
@@ -206,7 +207,6 @@ class ProductController extends Controller
             //
         $items_prd = null;
         $breadcumb = null;
-
         $currentCategory=Group::whereHas('items', function ($query) use ($data) {
             $query->where('item_id',$data->id);
         })
@@ -248,7 +248,6 @@ class ProductController extends Controller
                 'status' => 0,
             ], 500);
         }
-
         $data->totalviews = $data->totalviews + 1;
         $data->save();
         // xử lí cookie sản phẩm đã xem
@@ -304,18 +303,31 @@ class ProductController extends Controller
                 }
             }
         }
+
+        $items_blog = Item::with(array('groups' => function($query){
+            $query->where('module','article-category');
+        }));
+        $items_blog = $items_blog->where('module','article')
+            ->where('status', '=', 1)->limit(3)->get();
         // Sản phẩm yêu thích
-        $favourite = 0;
-        if(Auth::guard('frontend')->check()){
-            $activeFavourite = Favourite::where('user_id',Auth::guard('frontend')->user()->id)->where('item_id',$data->id)->first();
-            if($activeFavourite){
-                if($activeFavourite->status == 1){
-                    $favourite = 1;
-                }
-            }
-        }
+        //        $favourite = 0;
+        //        if(Auth::guard('frontend')->check()){
+        //            $activeFavourite = Favourite::where('user_id',Auth::guard('frontend')->user()->id)->where('item_id',$data->id)->first();
+        //            if($activeFavourite){
+        //                if($activeFavourite->status == 1){
+        //                    $favourite = 1;
+        //                }
+        //            }
+        //        }
+        return response()->json([
+            'message' => 'Thành công.',
+            'data_attribute' => $currentCategory,
+            'data' => $data,
+            'items_prd' => $items_prd,
+            'items_blog' => $items_blog,
+            'comment' => $comment,
+        ], 200);
         return $breadcumb;
-    dd($breadcumb);
     }
     public function getCart(Request $request){
         dd(json_decode(Cookie::get('shopping_cart')));
