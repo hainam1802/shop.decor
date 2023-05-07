@@ -272,7 +272,7 @@ class GroupController extends Controller
                 'redirect'=>''
             ]);
         }
-        $data=Item::where('module','=',$this->module)::whereIn('id',$input)->update([
+        $data=Item::where('module','=',$this->module)->whereIn('id',$input)->update([
             $field=>$value
         ]);
 
@@ -288,15 +288,15 @@ class GroupController extends Controller
      // AJAX Reordering function
      public function order(Request $request)
      {
- 
+
          $source = e($request->get('source'));
          $destination = $request->get('destination');
          $item = Group_Item_Index::find($source);
          $item->save();
- 
+
          $ordering = json_decode($request->get('order'));
- 
- 
+
+
          $rootOrdering = json_decode($request->get('rootOrder'));
          if ($ordering) {
              foreach ($ordering as $order => $item_id) {
@@ -317,10 +317,10 @@ class GroupController extends Controller
          ActivityLog::add($request, 'Thay đổi STT thành công '.$this->module.' #'.$item->id);
          return 'ok ';
      }
- 
- 
- 
- 
+
+
+
+
      public function search(Request $request){
          $module = str_replace('-group','',$this->module);
          $group_id = $request->id;
@@ -341,7 +341,7 @@ class GroupController extends Controller
          return view('admin.module.group.search')
              ->with('datatable',$datatable)->render();
      }
- 
+
      public function showItemGroup(Request $request){
          $id = $request->id;
          $module = $this->module;
@@ -354,39 +354,39 @@ class GroupController extends Controller
          ]);
      }
      public function updateItemGroup(Request $request){
- 
+
          $id = $request->id;
          $group_id = $request->group_id;
- 
- 
+
+
          // kiểm tra id
- 
+
          $item = Item::select('id','title')->where('id',$id)->select('id','title','price','description','status','order')->first();
- 
- 
+
+
          if(!$item){
              return response()->json([
                  'status' => 0,
                  'message' => "Bài viết không hợp lệ",
              ]);
          }
- 
+
          if($item->status == 0){
              return response()->json([
                  'status' => 0,
                  'message' => "Game không hoạt động",
              ]);
          }
- 
+
          $group=Group::where('module','=',$this->module)->where('id',$group_id)->first();
- 
+
          if(!$group){
              return response()->json([
                  'status' => 0,
                  'message' => "Dữ liệu group không hợp lệ",
              ]);
          }
- 
+
          // check xem group đã có item này hay chưa
          $check = Group_Item_Index::where('group_id',$group->id)->where('item_id',$item->id)->first();
          if($check){
@@ -395,7 +395,7 @@ class GroupController extends Controller
                  'message' => "Dữ liệu đã được ở trong nhóm",
              ]);
          }
- 
+
          $data = Group_Item_Index::create([
              'group_id' => $group->id,
              'item_id' => $item->id
@@ -406,7 +406,7 @@ class GroupController extends Controller
              'data' => $group_item,
          ]);
      }
- 
+
      public function deleteItemGroup(Request $request){
          $id = $request->id;
          $group_item = Group_Item_Index::where('id',$id)->first();
