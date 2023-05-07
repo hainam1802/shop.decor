@@ -3,6 +3,7 @@
 @include('frontend.widget.__seo_head')
 @endsection
 @section('content')
+    @dd(json_decode(Cookie::get('shopping_cart')));
 <section>
    <div class="container">
       <ol class="breadcrumb" itemscope itemtype="http://schema.org/BreadcrumbList">
@@ -203,11 +204,12 @@
                   <!-- BK BUTTON -->
                   <div class='bk-btn'></div>
                   <!-- END BK BUTTON -->
-                  {{-- <a title="Mua ngay"  class="btn-red btnQuickOrder btnbuy buy_now_button"><strong>MUA NGAY</strong><span> Giao tận nhà (COD) hoặc Nhận tại cửa hàng</span></a>
-                  @if (isset($data->is_installment) && $data->is_installment == 1)
-                  <a title="Mua trả góp" href="/tra-gop/{{isset($data->url) ? $data->url : $data->slug}}" class="btnInstallment btn-green btnbuy"><strong>TRẢ GÓP</strong><span>C.Ty Tài chính, Thẻ tín dụng</span></a>
-                  @endif --}}
-                  {{-- <a title="Thêm vào giỏ hàng" data-sku="I13M512B" href="javascript:;" class="btn-orange btnbuy btn-icon" id="add-cart"><i class="fas fa-cart-plus"></i></a> --}}
+                   <a title="Mua ngay"  class="btn-red btnQuickOrder btnbuy buy_now_button"><strong>MUA NGAY</strong><span> Giao tận nhà (COD) hoặc Nhận tại cửa hàng</span></a>
+{{--                  @if (i        return $data;--}}
+{{--sset($data->is_installment) && $data->is_installment == 1)--}}
+{{--                  <a title="Mua trả góp" href="/tra-gop/{{isset($data->url) ? $data->url : $data->slug}}" class="btnInstallment btn-green btnbuy"><strong>TRẢ GÓP</strong><span>C.Ty Tài chính, Thẻ tín dụng</span></a>--}}
+{{--                  @endif --}}
+                   <a title="Thêm vào giỏ hàng" data-sku="I13M512B" href="javascript:;" class="btn-orange btnbuy btn-icon" id="add-cart"><i class="fas fa-cart-plus"></i></a>
                </div>
                <div class="modal buy_now ">
                   <div class="modal-overlay buy_now_button"></div>

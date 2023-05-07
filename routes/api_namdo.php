@@ -21,7 +21,14 @@ Route::group(['namespace' => 'Api\Frontend','prefix' => 'client','as'=>'api.'],f
     Route::get('/menu-category','MenuCategoryController@index');
     Route::get('/category','CategoryController@index');
     Route::get('/category/{id}','ProductController@getCategory');
+    Route::get('/{category}/{id}','ProductController@getItem');
+    Route::get('/cart','ProductController@getCart');
+    Route::group(['middleware' => 'auth_api','api'],function(){
+        Route::post('/order','ProductController@postOrder');
+
+    });
 });
+
 
 //api
 Route::group(['namespace' => 'Api\Backend','prefix' => 'admin','as'=>'api.'],function(){

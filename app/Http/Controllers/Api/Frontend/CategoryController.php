@@ -18,7 +18,7 @@ class CategoryController extends Controller
                 ->orderBy('order')
                 ->get();
             return response()->json([
-                'message' => 'Danh mục sản phẩm.',
+                'message' => 'Menu trang chủ.',
                 'status' => 1,
                 'data' => $data,
             ], 200);
