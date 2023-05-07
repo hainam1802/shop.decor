@@ -256,13 +256,13 @@ th {
 @font-face {
     font-family: Glyphicons Halflings;
     font-display: swap;
-    src: url(../fonts/glyphicons-halflings-regular.eot);
-    src: url(../fonts/glyphicons-halflings-regular.eot?#iefix)
+    src: url(https://cdn.kkfashion.vn/themes/kkfashion/assets/fonts/glyphicons-halflings-regular.eot);
+    src: url(https://cdn.kkfashion.vn/themes/kkfashion/assets/fonts/glyphicons-halflings-regular.eot?#iefix)
     format("embedded-opentype"),
-    url(../fonts/glyphicons-halflings-regular.woff2) format("woff2"),
-    url(../fonts/glyphicons-halflings-regular.woff) format("woff"),
-    url(../fonts/glyphicons-halflings-regular.ttf) format("truetype"),
-    url(../fonts/glyphicons-halflings-regular.svg#glyphicons_halflingsregular)
+    url(https://cdn.kkfashion.vn/themes/kkfashion/assets/fonts/glyphicons-halflings-regular.woff2) format("woff2"),
+    url(https://cdn.kkfashion.vn/themes/kkfashion/assets/fonts/glyphicons-halflings-regular.woff) format("woff"),
+    url(https://cdn.kkfashion.vn/themes/kkfashion/assets/fonts/glyphicons-halflings-regular.ttf) format("truetype"),
+    url(https://cdn.kkfashion.vn/themes/kkfashion/assets/fonts/glyphicons-halflings-regular.svg#glyphicons_halflingsregular)
     format("svg");
 }
 .glyphicon {
@@ -10750,13 +10750,13 @@ b {
 @font-face {
     font-family: FontAwesome;
     font-display: swap;
-    src: url(../fonts/fontawesome-webfont.eot);
-    src: url(../fonts/fontawesome-webfont.eot?#iefix&v=4.7.0)
+    src: url(https://cdn.kkfashion.vn/themes/kkfashion/assets/fonts/fontawesome-webfont.eot);
+    src: url(https://cdn.kkfashion.vn/themes/kkfashion/assets/fonts/fontawesome-webfont.eot?#iefix&v=4.7.0)
     format("embedded-opentype"),
-    url(../fonts/fontawesome-webfont.woff2) format("woff2"),
-    url(../fonts/fontawesome-webfont.woff) format("woff"),
-    url(../fonts/fontawesome-webfont.ttf) format("truetype"),
-    url(../fonts/fontawesome-webfont.svg#fontawesomeregular) format("svg");
+    url(https://cdn.kkfashion.vn/themes/kkfashion/assets/fonts/fontawesome-webfont.woff2) format("woff2"),
+    url(https://cdn.kkfashion.vn/themes/kkfashion/assets/fonts/fontawesome-webfont.woff) format("woff"),
+    url(https://cdn.kkfashion.vn/themes/kkfashion/assets/fonts/fontawesome-webfont.ttf) format("truetype"),
+    url(https://cdn.kkfashion.vn/themes/kkfashion/assets/fonts/fontawesome-webfont.svg#fontawesomeregular) format("svg");
     font-weight: 400;
     font-style: normal;
 }
@@ -13078,23 +13078,23 @@ b {
 @font-face {
     font-family: elle-futura;
     font-display: swap;
-    src: url(../fonts/elle-futura-bold_2.eot);
-    src: url(../fonts/elle-futura-bold_2.eot?#iefix) format("embedded-opentype"),
-    url(../fonts/elle-futura-bold_2.woff) format("woff"),
-    url(../fonts/elle-futura-bold_2.ttf) format("truetype"),
-    url(../fonts/elle-futura-bold_2.svg#glyphicons-halflingsregular)
+    src: url(https://cdn.kkfashion.vn/themes/kkfashion/assets/fonts/elle-futura-bold_2.eot);
+    src: url(https://cdn.kkfashion.vn/themes/kkfashion/assets/fonts/elle-futura-bold_2.eot?#iefix) format("embedded-opentype"),
+    url(https://cdn.kkfashion.vn/themes/kkfashion/assets/fonts/elle-futura-bold_2.woff) format("woff"),
+    url(https://cdn.kkfashion.vn/themes/kkfashion/assets/fonts/elle-futura-bold_2.ttf) format("truetype"),
+    url(https://cdn.kkfashion.vn/themes/kkfashion/assets/fonts/elle-futura-bold_2.svg#glyphicons-halflingsregular)
     format("svg");
     font-weight: 700;
 }
 @font-face {
     font-family: elle-futura;
     font-display: swap;
-    src: url(../fonts/elle-futura-boldoblique_2.eot);
-    src: url(../fonts/elle-futura-boldoblique_2.eot?#iefix)
+    src: url(https://cdn.kkfashion.vn/themes/kkfashion/assets/fonts/elle-futura-boldoblique_2.eot);
+    src: url(https://cdn.kkfashion.vn/themes/kkfashion/assets/fonts/elle-futura-boldoblique_2.eot?#iefix)
     format("embedded-opentype"),
-    url(../fonts/elle-futura-boldoblique_2.woff) format("woff"),
-    url(../fonts/elle-futura-boldoblique_2.ttf) format("truetype"),
-    url(../fonts/elle-futura-boldoblique_2.svg#glyphicons-halflingsregular)
+    url(https://cdn.kkfashion.vn/themes/kkfashion/assets/fonts/elle-futura-boldoblique_2.woff) format("woff"),
+    url(https://cdn.kkfashion.vn/themes/kkfashion/assets/fonts/elle-futura-boldoblique_2.ttf) format("truetype"),
+    url(https://cdn.kkfashion.vn/themes/kkfashion/assets/fonts/elle-futura-boldoblique_2.svg#glyphicons-halflingsregular)
     format("svg");
     font-weight: 700;
     font-style: italic;
@@ -13102,42 +13102,42 @@ b {
 @font-face {
     font-family: elle-futura;
     font-display: swap;
-    src: url(../fonts/elle-futura-book_2.eot);
-    src: url(../fonts/elle-futura-book_2.eot?#iefix) format("embedded-opentype"),
-    url(../fonts/elle-futura-book_2.woff) format("woff"),
-    url(../fonts/elle-futura-book_2.ttf) format("truetype"),
-    url(../fonts/elle-futura-book_2.svg#glyphicons-halflingsregular)
+    src: url(https://cdn.kkfashion.vn/themes/kkfashion/assets/fonts/elle-futura-book_2.eot);
+    src: url(https://cdn.kkfashion.vn/themes/kkfashion/assets/fonts/elle-futura-book_2.eot?#iefix) format("embedded-opentype"),
+    url(https://cdn.kkfashion.vn/themes/kkfashion/assets/fonts/elle-futura-book_2.woff) format("woff"),
+    url(https://cdn.kkfashion.vn/themes/kkfashion/assets/fonts/elle-futura-book_2.ttf) format("truetype"),
+    url(https://cdn.kkfashion.vn/themes/kkfashion/assets/fonts/elle-futura-book_2.svg#glyphicons-halflingsregular)
     format("svg");
 }
 @font-face {
     font-family: elle-futura;
     font-display: swap;
-    src: url(../fonts/elle-futura-bookoblique_2.eot);
-    src: url(../fonts/elle-futura-bookoblique_2.eot?#iefix)
+    src: url(https://cdn.kkfashion.vn/themes/kkfashion/assets/fonts/elle-futura-bookoblique_2.eot);
+    src: url(https://cdn.kkfashion.vn/themes/kkfashion/assets/fonts/elle-futura-bookoblique_2.eot?#iefix)
     format("embedded-opentype"),
-    url(../fonts/elle-futura-bookoblique_2.woff) format("woff"),
-    url(../fonts/elle-futura-bookoblique_2.ttf) format("truetype"),
-    url(../fonts/elle-futura-bookoblique_2.svg#glyphicons-halflingsregular)
+    url(https://cdn.kkfashion.vn/themes/kkfashion/assets/fonts/elle-futura-bookoblique_2.woff) format("woff"),
+    url(https://cdn.kkfashion.vn/themes/kkfashion/assets/fonts/elle-futura-bookoblique_2.ttf) format("truetype"),
+    url(https://cdn.kkfashion.vn/themes/kkfashion/assets/fonts/elle-futura-bookoblique_2.svg#glyphicons-halflingsregular)
     format("svg");
     font-style: italic;
 }
 @font-face {
     font-family: utm-avo;
     font-display: swap;
-    src: url(../fonts/utm-avo.eot);
-    src: url(../fonts/utm-avo.eot?#iefix) format("embedded-opentype"),
-    url(../fonts/utm-avo.woff) format("woff"),
-    url(../fonts/utm-avo.ttf) format("truetype"),
-    url(../fonts/utm-avo.svg#glyphicons-halflingsregular) format("svg");
+    src: url(https://cdn.kkfashion.vn/themes/kkfashion/assets/fonts/utm-avo.eot);
+    src: url(https://cdn.kkfashion.vn/themes/kkfashion/assets/fonts/utm-avo.eot?#iefix) format("embedded-opentype"),
+    url(https://cdn.kkfashion.vn/themes/kkfashion/assets/fonts/utm-avo.woff) format("woff"),
+    url(https://cdn.kkfashion.vn/themes/kkfashion/assets/fonts/utm-avo.ttf) format("truetype"),
+    url(https://cdn.kkfashion.vn/themes/kkfashion/assets/fonts/utm-avo.svg#glyphicons-halflingsregular) format("svg");
 }
 @font-face {
     font-family: utm-avo;
     font-display: swap;
-    src: url(../fonts/utm-avobold_italic.eot);
-    src: url(../fonts/utm-avobold_italic.eot?#iefix) format("embedded-opentype"),
-    url(../fonts/utm-avobold_italic.woff) format("woff"),
-    url(../fonts/utm-avobold_italic.ttf) format("truetype"),
-    url(../fonts/utm-avobold_italic.svg#glyphicons-halflingsregular)
+    src: url(https://cdn.kkfashion.vn/themes/kkfashion/assets/fonts/utm-avobold_italic.eot);
+    src: url(https://cdn.kkfashion.vn/themes/kkfashion/assets/fonts/utm-avobold_italic.eot?#iefix) format("embedded-opentype"),
+    url(https://cdn.kkfashion.vn/themes/kkfashion/assets/fonts/utm-avobold_italic.woff) format("woff"),
+    url(https://cdn.kkfashion.vn/themes/kkfashion/assets/fonts/utm-avobold_italic.ttf) format("truetype"),
+    url(https://cdn.kkfashion.vn/themes/kkfashion/assets/fonts/utm-avobold_italic.svg#glyphicons-halflingsregular)
     format("svg");
     font-weight: 700;
     font-style: italic;
@@ -13145,32 +13145,32 @@ b {
 @font-face {
     font-family: utm-avo;
     font-display: swap;
-    src: url(../fonts/utm-avobold.eot);
-    src: url(../fonts/utm-avobold.eot?#iefix) format("embedded-opentype"),
-    url(../fonts/utm-avobold.woff) format("woff"),
-    url(../fonts/utm-avobold.ttf) format("truetype"),
-    url(../fonts/utm-avobold.svg#glyphicons-halflingsregular) format("svg");
+    src: url(https://cdn.kkfashion.vn/themes/kkfashion/assets/fonts/utm-avobold.eot);
+    src: url(https://cdn.kkfashion.vn/themes/kkfashion/assets/fonts/utm-avobold.eot?#iefix) format("embedded-opentype"),
+    url(https://cdn.kkfashion.vn/themes/kkfashion/assets/fonts/utm-avobold.woff) format("woff"),
+    url(https://cdn.kkfashion.vn/themes/kkfashion/assets/fonts/utm-avobold.ttf) format("truetype"),
+    url(https://cdn.kkfashion.vn/themes/kkfashion/assets/fonts/utm-avobold.svg#glyphicons-halflingsregular) format("svg");
     font-weight: 700;
 }
 @font-face {
     font-family: utm-avo;
     font-display: swap;
-    src: url(../fonts/utm-avoitalic.eot);
-    src: url(../fonts/utm-avoitalic.eot?#iefix) format("embedded-opentype"),
-    url(../fonts/utm-avoitalic.woff) format("woff"),
-    url(../fonts/utm-avoitalic.ttf) format("truetype"),
-    url(../fonts/utm-avoitalic.svg#glyphicons-halflingsregular) format("svg");
+    src: url(https://cdn.kkfashion.vn/themes/kkfashion/assets/fonts/utm-avoitalic.eot);
+    src: url(https://cdn.kkfashion.vn/themes/kkfashion/assets/fonts/utm-avoitalic.eot?#iefix) format("embedded-opentype"),
+    url(https://cdn.kkfashion.vn/themes/kkfashion/assets/fonts/utm-avoitalic.woff) format("woff"),
+    url(https://cdn.kkfashion.vn/themes/kkfashion/assets/fonts/utm-avoitalic.ttf) format("truetype"),
+    url(https://cdn.kkfashion.vn/themes/kkfashion/assets/fonts/utm-avoitalic.svg#glyphicons-halflingsregular) format("svg");
     font-style: italic;
 }
 @font-face {
     font-family: Pe-icon-7-stroke;
     font-display: swap;
-    src: url(../fonts/pe-icon-7-stroke.eot);
-    src: url(../fonts/pe-icon-7-stroke.eot?#iefixd7yf1v)
+    src: url(https://cdn.kkfashion.vn/themes/kkfashion/assets/fonts/pe-icon-7-stroke.eot);
+    src: url(https://cdn.kkfashion.vn/themes/kkfashion/assets/fonts/pe-icon-7-stroke.eot?#iefixd7yf1v)
     format("embedded-opentype"),
-    url(../fonts/pe-icon-7-stroke.woff) format("woff"),
-    url(../fonts/pe-icon-7-stroke.ttf) format("truetype"),
-    url(../fonts/pe-icon-7-stroke.svg#Pe-icon-7-stroke) format("svg");
+    url(https://cdn.kkfashion.vn/themes/kkfashion/assets/fonts/pe-icon-7-stroke.woff) format("woff"),
+    url(https://cdn.kkfashion.vn/themes/kkfashion/assets/fonts/pe-icon-7-stroke.ttf) format("truetype"),
+    url(https://cdn.kkfashion.vn/themes/kkfashion/assets/fonts/pe-icon-7-stroke.svg#Pe-icon-7-stroke) format("svg");
 }
 [class*=" pe-7s-"],
 [class^="pe-7s-"] {
@@ -13782,11 +13782,11 @@ b {
 @font-face {
     font-family: themify;
     font-display: swap;
-    src: url(../fonts/themify.eot);
-    src: url(../fonts/themify.eot?#iefix-fvbane) format("embedded-opentype"),
-    url(../fonts/themify.woff) format("woff"),
-    url(../fonts/themify.ttf) format("truetype"),
-    url(../fonts/themify.svg#themify) format("svg");
+    src: url(https://cdn.kkfashion.vn/themes/kkfashion/assets/fonts/themify.eot);
+    src: url(https://cdn.kkfashion.vn/themes/kkfashion/assets/fonts/themify.eot?#iefix-fvbane) format("embedded-opentype"),
+    url(https://cdn.kkfashion.vn/themes/kkfashion/assets/fonts/themify.woff) format("woff"),
+    url(https://cdn.kkfashion.vn/themes/kkfashion/assets/fonts/themify.ttf) format("truetype"),
+    url(https://cdn.kkfashion.vn/themes/kkfashion/assets/fonts/themify.svg#themify) format("svg");
     font-weight: 400;
     font-style: normal;
 }
@@ -16542,7 +16542,7 @@ a.readmore {
 .shop-page-header {
     padding-top: 60px;
     padding-bottom: 60px;
-    background-image: url(../img/title-bar.jpg);
+    background-image: url(https://cdn.kkfashion.vn/themes/kkfashion/assets/img/title-bar.jpg);
 }
 .shop-page-header h1 {
     font-size: 24px;
@@ -17903,7 +17903,7 @@ a.readmore {
     align-items: center;
     justify-content: space-between;
     border-bottom: 1px solid #eee;
-    background: url(../img/pattern.png) repeat #f5f5f5;
+    background: url(https://cdn.kkfashion.vn/themes/kkfashion/assets/img/pattern.png) repeat #f5f5f5;
 }
 .user-form .form-title span {
     font-size: 14px;
@@ -20931,7 +20931,7 @@ a.green_btn:hover {
 } /*! jQuery UI - v1.12.1 - 2016-09-14
 * http://jqueryui.com
 * Includes: core.css, accordion.css, autocomplete.css, menu.css, button.css, controlgroup.css, checkboxradio.css, datepicker.css, dialog.css, draggable.css, resizable.css, progressbar.css, selectable.css, selectmenu.css, slider.css, sortable.css, spinner.css, tabs.css, tooltip.css, theme.css
-* To view and modify this theme, visit http://jqueryui.com/themeroller/?bgShadowXPos=&bgOverlayXPos=&bgErrorXPos=&bgHighlightXPos=&bgContentXPos=&bgHeaderXPos=&bgActiveXPos=&bgHoverXPos=&bgDefaultXPos=&bgShadowYPos=&bgOverlayYPos=&bgErrorYPos=&bgHighlightYPos=&bgContentYPos=&bgHeaderYPos=&bgActiveYPos=&bgHoverYPos=&bgDefaultYPos=&bgShadowRepeat=&bgOverlayRepeat=&bgErrorRepeat=&bgHighlightRepeat=&bgContentRepeat=&bgHeaderRepeat=&bgActiveRepeat=&bgHoverRepeat=&bgDefaultRepeat=&iconsHover=url(../js/jquery-ui-1.12.1/%22images%2Fui-icons_555555_256x240.png%22)&iconsHighlight=url(../js/jquery-ui-1.12.1/%22images%2Fui-icons_777620_256x240.png%22)&iconsHeader=url(../js/jquery-ui-1.12.1/%22images%2Fui-icons_444444_256x240.png%22)&iconsError=url(../js/jquery-ui-1.12.1/%22images%2Fui-icons_cc0000_256x240.png%22)&iconsDefault=url(../js/jquery-ui-1.12.1/%22images%2Fui-icons_777777_256x240.png%22)&iconsContent=url(../js/jquery-ui-1.12.1/%22images%2Fui-icons_444444_256x240.png%22)&iconsActive=url(../js/jquery-ui-1.12.1/%22images%2Fui-icons_ffffff_256x240.png%22)&bgImgUrlShadow=&bgImgUrlOverlay=&bgImgUrlHover=&bgImgUrlHighlight=&bgImgUrlHeader=&bgImgUrlError=&bgImgUrlDefault=&bgImgUrlContent=&bgImgUrlActive=&opacityFilterShadow=Alpha(Opacity%3D30)&opacityFilterOverlay=Alpha(Opacity%3D30)&opacityShadowPerc=30&opacityOverlayPerc=30&iconColorHover=%23555555&iconColorHighlight=%23777620&iconColorHeader=%23444444&iconColorError=%23cc0000&iconColorDefault=%23777777&iconColorContent=%23444444&iconColorActive=%23ffffff&bgImgOpacityShadow=0&bgImgOpacityOverlay=0&bgImgOpacityError=95&bgImgOpacityHighlight=55&bgImgOpacityContent=75&bgImgOpacityHeader=75&bgImgOpacityActive=65&bgImgOpacityHover=75&bgImgOpacityDefault=75&bgTextureShadow=flat&bgTextureOverlay=flat&bgTextureError=flat&bgTextureHighlight=flat&bgTextureContent=flat&bgTextureHeader=flat&bgTextureActive=flat&bgTextureHover=flat&bgTextureDefault=flat&cornerRadius=3px&fwDefault=normal&ffDefault=Arial%2CHelvetica%2Csans-serif&fsDefault=1em&cornerRadiusShadow=8px&thicknessShadow=5px&offsetLeftShadow=0px&offsetTopShadow=0px&opacityShadow=.3&bgColorShadow=%23666666&opacityOverlay=.3&bgColorOverlay=%23aaaaaa&fcError=%235f3f3f&borderColorError=%23f1a899&bgColorError=%23fddfdf&fcHighlight=%23777620&borderColorHighlight=%23dad55e&bgColorHighlight=%23fffa90&fcContent=%23333333&borderColorContent=%23dddddd&bgColorContent=%23ffffff&fcHeader=%23333333&borderColorHeader=%23dddddd&bgColorHeader=%23e9e9e9&fcActive=%23ffffff&borderColorActive=%23003eff&bgColorActive=%23007fff&fcHover=%232b2b2b&borderColorHover=%23cccccc&bgColorHover=%23ededed&fcDefault=%23454545&borderColorDefault=%23c5c5c5&bgColorDefault=%23f6f6f6
+* To view and modify this theme, visit http://jqueryui.com/themeroller/?bgShadowXPos=&bgOverlayXPos=&bgErrorXPos=&bgHighlightXPos=&bgContentXPos=&bgHeaderXPos=&bgActiveXPos=&bgHoverXPos=&bgDefaultXPos=&bgShadowYPos=&bgOverlayYPos=&bgErrorYPos=&bgHighlightYPos=&bgContentYPos=&bgHeaderYPos=&bgActiveYPos=&bgHoverYPos=&bgDefaultYPos=&bgShadowRepeat=&bgOverlayRepeat=&bgErrorRepeat=&bgHighlightRepeat=&bgContentRepeat=&bgHeaderRepeat=&bgActiveRepeat=&bgHoverRepeat=&bgDefaultRepeat=&iconsHover=url(https://cdn.kkfashion.vn/themes/kkfashion/assets/js/jquery-ui-1.12.1/%22images%2Fui-icons_555555_256x240.png%22)&iconsHighlight=url(https://cdn.kkfashion.vn/themes/kkfashion/assets/js/jquery-ui-1.12.1/%22images%2Fui-icons_777620_256x240.png%22)&iconsHeader=url(https://cdn.kkfashion.vn/themes/kkfashion/assets/js/jquery-ui-1.12.1/%22images%2Fui-icons_444444_256x240.png%22)&iconsError=url(https://cdn.kkfashion.vn/themes/kkfashion/assets/js/jquery-ui-1.12.1/%22images%2Fui-icons_cc0000_256x240.png%22)&iconsDefault=url(https://cdn.kkfashion.vn/themes/kkfashion/assets/js/jquery-ui-1.12.1/%22images%2Fui-icons_777777_256x240.png%22)&iconsContent=url(https://cdn.kkfashion.vn/themes/kkfashion/assets/js/jquery-ui-1.12.1/%22images%2Fui-icons_444444_256x240.png%22)&iconsActive=url(https://cdn.kkfashion.vn/themes/kkfashion/assets/js/jquery-ui-1.12.1/%22images%2Fui-icons_ffffff_256x240.png%22)&bgImgUrlShadow=&bgImgUrlOverlay=&bgImgUrlHover=&bgImgUrlHighlight=&bgImgUrlHeader=&bgImgUrlError=&bgImgUrlDefault=&bgImgUrlContent=&bgImgUrlActive=&opacityFilterShadow=Alpha(Opacity%3D30)&opacityFilterOverlay=Alpha(Opacity%3D30)&opacityShadowPerc=30&opacityOverlayPerc=30&iconColorHover=%23555555&iconColorHighlight=%23777620&iconColorHeader=%23444444&iconColorError=%23cc0000&iconColorDefault=%23777777&iconColorContent=%23444444&iconColorActive=%23ffffff&bgImgOpacityShadow=0&bgImgOpacityOverlay=0&bgImgOpacityError=95&bgImgOpacityHighlight=55&bgImgOpacityContent=75&bgImgOpacityHeader=75&bgImgOpacityActive=65&bgImgOpacityHover=75&bgImgOpacityDefault=75&bgTextureShadow=flat&bgTextureOverlay=flat&bgTextureError=flat&bgTextureHighlight=flat&bgTextureContent=flat&bgTextureHeader=flat&bgTextureActive=flat&bgTextureHover=flat&bgTextureDefault=flat&cornerRadius=3px&fwDefault=normal&ffDefault=Arial%2CHelvetica%2Csans-serif&fsDefault=1em&cornerRadiusShadow=8px&thicknessShadow=5px&offsetLeftShadow=0px&offsetTopShadow=0px&opacityShadow=.3&bgColorShadow=%23666666&opacityOverlay=.3&bgColorOverlay=%23aaaaaa&fcError=%235f3f3f&borderColorError=%23f1a899&bgColorError=%23fddfdf&fcHighlight=%23777620&borderColorHighlight=%23dad55e&bgColorHighlight=%23fffa90&fcContent=%23333333&borderColorContent=%23dddddd&bgColorContent=%23ffffff&fcHeader=%23333333&borderColorHeader=%23dddddd&bgColorHeader=%23e9e9e9&fcActive=%23ffffff&borderColorActive=%23003eff&bgColorActive=%23007fff&fcHover=%232b2b2b&borderColorHover=%23cccccc&bgColorHover=%23ededed&fcDefault=%23454545&borderColorDefault=%23c5c5c5&bgColorDefault=%23f6f6f6
 * Copyright jQuery Foundation and other contributors; Licensed MIT */
 .ui-helper-hidden {
     display: none;
@@ -21921,20 +21921,20 @@ a.ui-button:active,
 }
 .ui-icon,
 .ui-widget-content .ui-icon {
-    background-image: url(../js/jquery-ui-1.12.1/images/ui-icons_444444_256x240.png);
+    background-image: url(https://cdn.kkfashion.vn/themes/kkfashion/assets/js/jquery-ui-1.12.1/images/ui-icons_444444_256x240.png);
 }
 .ui-widget-header .ui-icon {
-    background-image: url(../js/jquery-ui-1.12.1/images/ui-icons_444444_256x240.png);
+    background-image: url(https://cdn.kkfashion.vn/themes/kkfashion/assets/js/jquery-ui-1.12.1/images/ui-icons_444444_256x240.png);
 }
 .ui-state-hover .ui-icon,
 .ui-state-focus .ui-icon,
 .ui-button:hover .ui-icon,
 .ui-button:focus .ui-icon {
-    background-image: url(../js/jquery-ui-1.12.1/images/ui-icons_555555_256x240.png);
+    background-image: url(https://cdn.kkfashion.vn/themes/kkfashion/assets/js/jquery-ui-1.12.1/images/ui-icons_555555_256x240.png);
 }
 .ui-state-active .ui-icon,
 .ui-button:active .ui-icon {
-    background-image: url(../js/jquery-ui-1.12.1/images/ui-icons_ffffff_256x240.png);
+    background-image: url(https://cdn.kkfashion.vn/themes/kkfashion/assets/js/jquery-ui-1.12.1/images/ui-icons_ffffff_256x240.png);
 }
 .ui-state-highlight .ui-icon,
 .ui-button .ui-state-highlight.ui-icon {
@@ -21945,7 +21945,7 @@ a.ui-button:active,
     background-image: url(data:image/png;base64,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);
 }
 .ui-button .ui-icon {
-    background-image: url(../js/jquery-ui-1.12.1/images/ui-icons_777777_256x240.png);
+    background-image: url(https://cdn.kkfashion.vn/themes/kkfashion/assets/js/jquery-ui-1.12.1/images/ui-icons_777777_256x240.png);
 }
 .ui-icon-blank {
     background-position: 16px 16px;
@@ -22674,20 +22674,20 @@ a.ui-button:active,
 }
 .ui-icon,
 .ui-widget-content .ui-icon {
-    background-image: url(../js/jquery-ui-1.12.1/images/ui-icons_444444_256x240.png);
+    background-image: url(https://cdn.kkfashion.vn/themes/kkfashion/assets/js/jquery-ui-1.12.1/images/ui-icons_444444_256x240.png);
 }
 .ui-widget-header .ui-icon {
-    background-image: url(../js/jquery-ui-1.12.1/images/ui-icons_444444_256x240.png);
+    background-image: url(https://cdn.kkfashion.vn/themes/kkfashion/assets/js/jquery-ui-1.12.1/images/ui-icons_444444_256x240.png);
 }
 .ui-state-hover .ui-icon,
 .ui-state-focus .ui-icon,
 .ui-button:hover .ui-icon,
 .ui-button:focus .ui-icon {
-    background-image: url(../js/jquery-ui-1.12.1/images/ui-icons_555555_256x240.png);
+    background-image: url(https://cdn.kkfashion.vn/themes/kkfashion/assets/js/jquery-ui-1.12.1/images/ui-icons_555555_256x240.png);
 }
 .ui-state-active .ui-icon,
 .ui-button:active .ui-icon {
-    background-image: url(../js/jquery-ui-1.12.1/images/ui-icons_ffffff_256x240.png);
+    background-image: url(https://cdn.kkfashion.vn/themes/kkfashion/assets/js/jquery-ui-1.12.1/images/ui-icons_ffffff_256x240.png);
 }
 .ui-state-highlight .ui-icon,
 .ui-button .ui-state-highlight.ui-icon {
@@ -22698,7 +22698,7 @@ a.ui-button:active,
     background-image: url(data:image/png;base64,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);
 }
 .ui-button .ui-icon {
-    background-image: url(../js/jquery-ui-1.12.1/images/ui-icons_777777_256x240.png);
+    background-image: url(https://cdn.kkfashion.vn/themes/kkfashion/assets/js/jquery-ui-1.12.1/images/ui-icons_777777_256x240.png);
 }
 .ui-icon-blank {
     background-position: 16px 16px;
@@ -23260,7 +23260,7 @@ a.ui-button:active,
 }
 @font-face {
     font-family: bebas;
-    src: url(../fonts/utm-bebas.ttf);
+    src: url(https://cdn.kkfashion.vn/themes/kkfashion/assets/fonts/utm-bebas.ttf);
 }
 body {
     color: #666;
@@ -24093,7 +24093,7 @@ iframe {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background: url(../img/onsale22.png) no-repeat 0 0 transparent;
+    background: url(https://cdn.kkfashion.vn/themes/kkfashion/assets/img/onsale22.png) no-repeat 0 0 transparent;
     background-size: 85px 85px;
     font-family: bebas;
 }
