@@ -430,6 +430,6 @@ class ProductController extends Controller
             'status' => 1,
         ], 200);
 
-       
+
     }
 }
