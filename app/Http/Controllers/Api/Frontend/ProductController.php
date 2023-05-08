@@ -20,6 +20,7 @@ use App\Models\Installment;
 use App\Models\InstallmentDetail;
 use function Doctrine\Common\Cache\Psr6\get;
 use Illuminate\Support\Facades\Cookie;
+use Validator;
 
 class ProductController extends Controller
 {
@@ -330,7 +331,7 @@ class ProductController extends Controller
         ], 200);
     }
     public function postOrder(Request $request){
-        $this->validate($request,[
+        $validator = Validator::make($request->all(), [
             'fullname'=>'required',
             'phone'=>'required',
             'provinces'=>'required',
@@ -343,10 +344,18 @@ class ProductController extends Controller
             'districts.required' => __('Vui lòng chọn quận huyện'),
             'address.required' => __('Vui lòng nhập địa chỉ cụ thể'),
         ]);
-
+        if($validator->fails()){
+            return response()->json([
+                'message' => $validator->errors()->first(),
+                'status' => 0
+            ],200);
+        }
         // tìm sản phẩm
         if (!$request->cart){
-            return redirect()->back()->withErrors('Bạn không có sản phẩm nào trong giỏ hàng để thực hiện thao tác này !');
+            return response()->json([
+                'message' => 'Bạn không có sản phẩm nào trong giỏ hàng để thực hiện thao tác này !',
+                'status' => 0,
+            ], 200);
         }
         $cart = collect(json_decode($request->cart));
         $id_item = $cart->pluck('id')->toArray();
