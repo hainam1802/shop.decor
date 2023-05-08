@@ -420,9 +420,9 @@ class ProductController extends Controller
             OrderDetail::create([
                 'module' => 'product',
                 'order_id' => $order->id,
-                'item_id' => $item->id,
-                'quantity' => $item->qty,
-                'value' =>$item->options,
+                'item_id' => $item['id'] ,
+                'quantity' => $item['qty'],
+                'value' =>$item['options'],
             ]);
         }
         return response()->json([
@@ -430,7 +430,6 @@ class ProductController extends Controller
             'status' => 1,
         ], 200);
 
-        Cookie::queue(Cookie::forget('shopping_cart'));
-        return redirect()->to('/check-out/'.$order->id);
+       
     }
 }
