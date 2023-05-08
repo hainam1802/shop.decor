@@ -374,7 +374,7 @@ class ProductController extends Controller
         $count = array_sum($count);
         $order = Order::create([
             'module' => 'order',
-            'author_id' => Auth::guard('frontend')->user()->id,
+            'author_id' => $request->userid,
             'price' => $total_base,
             'real_received_price' => $total,
             'type' => 1,
