@@ -357,7 +357,7 @@ class ProductController extends Controller
                 'status' => 0,
             ], 200);
         }
-        $cart = collect(json_decode($request->cart));
+        $cart = collect($request->cart);
         $id_item = $cart->pluck('id')->toArray();
         $id_item = array_unique($id_item);
         $data_item = Item::where('module', '=','product')->whereIn('id',$id_item)->get();
@@ -365,9 +365,9 @@ class ProductController extends Controller
         $total_base = [];
         $count = [];
         foreach($cart as $item){
-            $total[] = $item->price * $item->qty;
-            $total_base[] = $item->price_base * $item->qty;
-            $count[] = $item->qty;
+            $total[] = $item['price'] * $item['qty'];
+            $total_base[] = $item['price_base'] * $item['qty'];
+            $count[] = $item['qty'] ;
         }
         $total = array_sum($total);
         $total_base = array_sum($total_base);
