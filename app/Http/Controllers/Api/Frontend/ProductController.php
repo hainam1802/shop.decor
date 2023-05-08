@@ -417,14 +417,17 @@ class ProductController extends Controller
         }
 
         foreach($cart as $item){
+
             OrderDetail::create([
                 'module' => 'product',
                 'order_id' => $order->id,
                 'item_id' => $item['id'] ,
                 'quantity' => $item['qty'],
-                'value' =>$item['options'],
+                'value' =>json_encode($item['options'],JSON_UNESCAPED_UNICODE) ,
             ]);
         }
+
+
         return response()->json([
             'message' => 'Đặt hàng thành công.',
             'status' => 1,
