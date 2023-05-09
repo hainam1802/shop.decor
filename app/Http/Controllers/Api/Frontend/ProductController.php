@@ -83,29 +83,29 @@ class ProductController extends Controller
 //        if($request->filled('title')){
 //            $items_prd = $items_prd->where('title', 'like', '%'.$request->get('title').'%');
 //        }
-        if($request->filled('price')){
-            switch ($request->get('price')) {
-                case "0-500000":
-                    $items_prd = $items_prd->where('price','<=',500000);
-                    break;
-                case "500000-1000000":
-                    $items_prd = $items_prd->where('price','>=',500000)->where('price','<=',1000000);
-                    break;
-                case "1000000-1500000":
-                    $items_prd = $items_prd->where('price','>=',3000000)->where('price','<=',5000000);
-                    break;
-                case "1500000-2000000":
-                    $items_prd = $items_prd->where('price','>=',1500000)->where('price','<=',2000000);
-                    break;
-                case "2000000-2500000":
-                    $items_prd = $items_prd->where('price','>=',2000000)->where('price','<=',2500000);
-                    break;
-                case "2500000-3000000":
-                    $items_prd = $items_prd->where('price','>=',2500000)->where('price','<=',3000000);
-                    break;
-                default :
-            }
-        }
+//        if($request->filled('price')){
+//            switch ($request->get('price')) {
+//                case "0-500000":
+//                    $items_prd = $items_prd->where('price','<=',500000);
+//                    break;
+//                case "500000-1000000":
+//                    $items_prd = $items_prd->where('price','>=',500000)->where('price','<=',1000000);
+//                    break;
+//                case "1000000-1500000":
+//                    $items_prd = $items_prd->where('price','>=',3000000)->where('price','<=',5000000);
+//                    break;
+//                case "1500000-2000000":
+//                    $items_prd = $items_prd->where('price','>=',1500000)->where('price','<=',2000000);
+//                    break;
+//                case "2000000-2500000":
+//                    $items_prd = $items_prd->where('price','>=',2000000)->where('price','<=',2500000);
+//                    break;
+//                case "2500000-3000000":
+//                    $items_prd = $items_prd->where('price','>=',2500000)->where('price','<=',3000000);
+//                    break;
+//                default :
+//            }
+//        }
 
 
         $items_prd = $items_prd->orderBy('id','desc')
