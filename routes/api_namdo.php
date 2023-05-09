@@ -20,7 +20,7 @@ Route::group(['namespace' => 'Api\Frontend','prefix' => 'client','as'=>'api.'],f
     Route::post('/register','Auth\RegisterController@register');
     Route::get('/menu-category','MenuCategoryController@index');
     Route::get('/category','CategoryController@index');
-    Route::get('/search','ProductController@getSearch');
+    Route::get('/product','ProductController@getSearch');
     Route::get('/blog','BlogController@getIndex');
     Route::get('/blog/search','BlogController@getSearch');
     Route::get('/blog/{category}','BlogController@getCategory');
