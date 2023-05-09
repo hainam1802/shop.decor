@@ -129,9 +129,7 @@ class ProductController extends Controller
             $query->where('module','product-category');
         }));
         $items_prd = $items_prd->where('module','product')
-            ->whereHas('groups', function ($query) use ($data) {
-                $query->where('group_id',$data->id);
-            })
+
             ->where('status', '=', 1);
         if($request->filled('id')){
             $items_prd = $items_prd->where('id','=',$request->get('id'));
