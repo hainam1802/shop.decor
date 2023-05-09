@@ -20,11 +20,18 @@ Route::group(['namespace' => 'Api\Frontend','prefix' => 'client','as'=>'api.'],f
     Route::post('/register','Auth\RegisterController@register');
     Route::get('/menu-category','MenuCategoryController@index');
     Route::get('/category','CategoryController@index');
+    Route::get('/search','ProductController@getSearch');
+    Route::get('/blog','BlogController@getIndex');
+    Route::get('/blog/search','BlogController@getSearch');
+    Route::get('/blog/{category}','BlogController@getCategory');
+    Route::get('/blog/{category}/{id}','BlogController@getItem');
     Route::get('/category/{id}','ProductController@getCategory');
     Route::get('/product/{category}/{id}','ProductController@getItem');
-    Route::get('/cart','ProductController@getCart');
     Route::group(['middleware' => 'auth_api','api'],function(){
-        Route::post('/order','ProductController@postOrder');
+        Route::post('/order','OrderController@postOrder');
+        Route::get('/order','OrderController@getOrder');
+        Route::get('/profile','UserController@getInfo');
+        Route::post('/profile','UserController@postProfile');
 
     });
 });
