@@ -120,34 +120,34 @@ return [
             'page' => ''
 
         ],
-        [
-            'section' => 'Quản lý trả góp',
-        ],
-        [
-            'title' => 'Đơn vị trả góp',
-            'icon' => 'fab fa-creative-commons-nc',
-            'bullet' => 'line',
-            'route' => 'admin.installment.index',
-            'page' => ''
-        ],
-        [
-            'title' => 'Yêu cầu trả góp',
-            'icon' => 'far fa-money-bill-alt',
-            'bullet' => 'line',
-            'route' => 'admin.installment-report.index',
-            'page' => ''
-        ],
-        [
-            'section' => 'Hệ thống',
-        ],
-        [
-            'title' => 'Nhóm vai trò',
-            'icon' => 'fas fa-crown',
-            'bullet' => 'line',
-            'route' => 'admin.role.index',
-            'page' => ''
-
-        ],
+//        [
+//            'section' => 'Quản lý trả góp',
+//        ],
+//        [
+//            'title' => 'Đơn vị trả góp',
+//            'icon' => 'fab fa-creative-commons-nc',
+//            'bullet' => 'line',
+//            'route' => 'admin.installment.index',
+//            'page' => ''
+//        ],
+//        [
+//            'title' => 'Yêu cầu trả góp',
+//            'icon' => 'far fa-money-bill-alt',
+//            'bullet' => 'line',
+//            'route' => 'admin.installment-report.index',
+//            'page' => ''
+//        ],
+//        [
+//            'section' => 'Hệ thống',
+//        ],
+//        [
+//            'title' => 'Nhóm vai trò',
+//            'icon' => 'fas fa-crown',
+//            'bullet' => 'line',
+//            'route' => 'admin.role.index',
+//            'page' => ''
+//
+//        ],
         [
             'title' => 'Danh sách QTV',
             'icon' => 'fas fa-user-cog',
@@ -166,15 +166,15 @@ return [
             'page' => ''
 
         ],
-        [
-            'title' => 'Cấu hình menu top',
-            'icon' => 'flaticon-menu-1',
-            'bullet' => 'line',
-            'permission' => 'user',
-            'route' => 'admin.menutop-category.index',
-            'page' => ''
-
-        ],
+//        [
+//            'title' => 'Cấu hình menu top',
+//            'icon' => 'flaticon-menu-1',
+//            'bullet' => 'line',
+//            'permission' => 'user',
+//            'route' => 'admin.menutop-category.index',
+//            'page' => ''
+//
+//        ],
         [
             'title' => 'Cấu hình menu chính',
             'icon' => 'flaticon-grid-menu',
@@ -193,22 +193,22 @@ return [
             'page' => ''
 
         ],
-        [
-            'title' => 'Quyền truy cập',
-            'icon' => 'assets/backend/themes/media/svg/icons/Code/Git4.svg',
-            'bullet' => 'line',
-            'route' => 'admin.permission.index',
-            'page' => ''
-
-        ],
-        [
-            'title' => 'Log hoạt động',
-            'icon' => 'assets/backend/themes/media/svg/icons/Devices/Diagnostics.svg',
-            'bullet' => 'line',
-            'route' => 'admin.activity-log.index',
-            'page' => ''
-
-        ],
+//        [
+//            'title' => 'Quyền truy cập',
+//            'icon' => 'assets/backend/themes/media/svg/icons/Code/Git4.svg',
+//            'bullet' => 'line',
+//            'route' => 'admin.permission.index',
+//            'page' => ''
+//
+//        ],
+//        [
+//            'title' => 'Log hoạt động',
+//            'icon' => 'assets/backend/themes/media/svg/icons/Devices/Diagnostics.svg',
+//            'bullet' => 'line',
+//            'route' => 'admin.activity-log.index',
+//            'page' => ''
+//
+//        ],
         [
             'title' => 'Cấu hình hệ thống',
             'icon' => 'assets/backend/themes/media/svg/icons/Code/Settings4.svg',
