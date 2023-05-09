@@ -78,7 +78,7 @@ class ProductController extends Controller
             })
             ->where('status', '=', 1);
         if($request->filled('id')){
-            $items_prd = $items_prd->where('id','=',$request->get('title'));
+            $items_prd = $items_prd->where('id','=',$request->get('id'));
         }
         if($request->filled('title')){
             $items_prd = $items_prd->where('title',$request->get('title'));
