@@ -81,7 +81,7 @@ class ProductController extends Controller
             $items_prd = $items_prd->where('id','=',$request->get('id'));
         }
         if($request->filled('title')){
-            $items_prd = $items_prd->where('title',$request->get('title'));
+            $items_prd = $items_prd->where('title', 'like', '%'.$request->get('title').'%');
         }
         if($request->filled('price')){
             switch ($request->get('price')) {
