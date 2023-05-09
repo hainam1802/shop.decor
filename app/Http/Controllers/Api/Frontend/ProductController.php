@@ -77,12 +77,12 @@ class ProductController extends Controller
                 $query->where('group_id',$data->id);
             })
             ->where('status', '=', 1);
-        if($request->filled('id')){
-            $items_prd = $items_prd->where('id','=',$request->get('id'));
-        }
-        if($request->filled('title')){
-            $items_prd = $items_prd->where('title', 'like', '%'.$request->get('title').'%');
-        }
+//        if($request->filled('id')){
+//            $items_prd = $items_prd->where('id','=',$request->get('id'));
+//        }
+//        if($request->filled('title')){
+//            $items_prd = $items_prd->where('title', 'like', '%'.$request->get('title').'%');
+//        }
         if($request->filled('price')){
             switch ($request->get('price')) {
                 case "0-500000":
