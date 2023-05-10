@@ -226,7 +226,7 @@ class ProductController extends Controller
                 ->whereHas('groups', function ($query) use ($currentCategory) {
                     $query->where('group_id',$currentCategory->id);
                 })
-                ->where('status', '=', 1)->inRandomOrder()->limit(5)->get();
+                ->where('status', '=', 1)->inRandomOrder()->limit(4)->get();
 
         }else{
             return response()->json([
