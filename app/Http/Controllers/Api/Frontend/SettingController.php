@@ -29,6 +29,9 @@ class SettingController extends Controller
     {
         if(isset($request->id) && is_int((int)$request->id)){
             $data = Group_Item_Index::with('item')
+                ->with(array('item' => function($query){
+                    $query->with('groups');
+                }))
                 ->select('id','group_id','item_id','order')
                 ->where('group_id',$request->id)
                 ->orderBy('id','desc')
