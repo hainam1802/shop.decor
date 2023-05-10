@@ -27,8 +27,8 @@ Route::group(['namespace' => 'Api\Frontend','prefix' => 'client','as'=>'api.'],f
     Route::get('/blog/{category}/{id}','BlogController@getItem');
     Route::get('/category/{id}','ProductController@getCategory');
     Route::get('/product/{category}/{id}','ProductController@getItem');
-    Route::get('/get-ads','SettingController@getAds');
-    Route::get('/get-widget','SettingController@getWidget');
+    Route::get('/setting/get-ads','SettingController@getAds');
+    Route::get('/setting/get-widget','SettingController@getWidget');
     Route::get('/product/{category}/{id}','ProductController@getItem');
     Route::group(['middleware' => 'auth_api','api'],function(){
         Route::post('/order','OrderController@postOrder');
