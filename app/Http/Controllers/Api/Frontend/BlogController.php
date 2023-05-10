@@ -60,7 +60,7 @@ class BlogController extends Controller
         $items_prd = $items_prd->orderBy('id','desc')
             ->orderBy('order')
             ->select('id','title','image','order','url','slug','price','price_old','price_input','percent_sale','status','url_type','target','totalviews','description','content','promotion','created_at')
-            ->paginate(8);
+            ->paginate(6);
         return response()->json([
             'message' => 'Thành công!',
             'status' => 1,
